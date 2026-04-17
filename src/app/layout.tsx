@@ -3,6 +3,7 @@ import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import FloatingElements from '@/components/layout/FloatingElements';
+import Providers from '@/components/layout/Providers';
 
 export const metadata: Metadata = {
   title: 'EduSpark International Study – Your Gateway to Global Education',
@@ -17,10 +18,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <FloatingElements />
+        <Providers>
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          <FloatingElements />
+        </Providers>
       </body>
     </html>
   );
