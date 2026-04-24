@@ -8,6 +8,7 @@ const loginSchema = z.object({
 });
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
+  secret: process.env.AUTH_SECRET ?? 'eduspark-fallback-secret-set-AUTH_SECRET-in-vercel',
   providers: [
     Credentials({
       async authorize(credentials) {
