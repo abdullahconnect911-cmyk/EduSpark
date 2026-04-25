@@ -38,14 +38,7 @@ const authHandler = auth((req) => {
   }
 });
 
-export default function middleware(req: NextRequest) {
-  try {
-    return authHandler(req as any);
-  } catch {
-    // If auth fails (e.g. missing AUTH_SECRET env var), fall through to Next.js routing
-    return NextResponse.next();
-  }
-}
+export default authHandler;
 
 export const config = {
   matcher: ['/dashboard/:path*', '/auth/login', '/auth/register'],
