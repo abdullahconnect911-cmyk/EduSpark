@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -20,8 +20,8 @@
   --nav-h:      72px;
   --ease:       cubic-bezier(0.23, 1, 0.32, 1);
   --transition: 0.3s var(--ease);
-  --font-body:    'Poppins', sans-serif;
-  --font-display: 'Playfair Display', serif;
+  --font-body:    'Google Sans', sans-serif;
+  --font-display: 'Google Sans', sans-serif;
 }
 
 * { box-sizing: border-box; }
