@@ -5,19 +5,21 @@ import { signOut } from 'next-auth/react';
 
 interface AdminSidebarProps {
   user: { name?: string | null; email?: string | null };
+  basePath?: string;
 }
 
-const navItems = [
-  { href: '/dashboard/admin', icon: '📊', label: 'Overview', exact: true },
-  { href: '/dashboard/admin/users', icon: '👥', label: 'Students' },
-  { href: '/dashboard/admin/applications', icon: '📋', label: 'Applications' },
-  { href: '/dashboard/admin/leads', icon: '🎯', label: 'Leads / CRM' },
-  { href: '/dashboard/admin/settings', icon: '⚙️', label: 'Settings' },
-];
-
-export default function AdminSidebar({ user }: AdminSidebarProps) {
+export default function AdminSidebar({ user, basePath = '/admin/dashboard' }: AdminSidebarProps) {
   const pathname = usePathname();
   const initials = user?.name?.split(' ').map(n => n[0]).slice(0, 2).join('').toUpperCase() || 'A';
+  const signOutUrl = basePath.startsWith('/admin') ? '/admin/login' : '/auth/login';
+
+  const navItems = [
+    { href: basePath,                   icon: '📊', label: 'Overview',     exact: true },
+    { href: `${basePath}/users`,        icon: '👥', label: 'Students' },
+    { href: `${basePath}/applications`, icon: '📋', label: 'Applications' },
+    { href: `${basePath}/leads`,        icon: '🎯', label: 'Leads / CRM' },
+    { href: `${basePath}/settings`,     icon: '⚙️', label: 'Settings' },
+  ];
 
   const isActive = (href: string, exact = false) =>
     exact ? pathname === href : pathname === href || pathname.startsWith(href + '/');
@@ -40,37 +42,20 @@ export default function AdminSidebar({ user }: AdminSidebarProps) {
             <span>{item.label}</span>
           </Link>
         ))}
-
         <div className="sidebar-section-label" style={{ marginTop: '16px' }}>Public Site</div>
-        {[
-          { href: '/', icon: '🌐', label: 'View Website' },
-          { href: '/contact', icon: '📞', label: 'Contact Page' },
-        ].map(item => (
-          <Link key={item.href} href={item.href} className="sidebar-link" target={item.href === '/' ? '_blank' : undefined}>
-            <div className="sidebar-icon">{item.icon}</div>
-            <span>{item.label}</span>
-          </Link>
-        ))}
+        <Link href="/" className="sidebar-link" target="_blank">
+          <div className="sidebar-icon">🌐</div><span>View Website</span>
+        </Link>
+        <Link href="/contact" className="sidebar-link">
+          <div className="sidebar-icon">📞</div><span>Contact Page</span>
+        </Link>
       </nav>
 
       <div className="sidebar-footer">
-        <button
-          onClick={() => signOut({ callbackUrl: '/' })}
-          style={{
-            width: '100%', padding: '10px 12px', display: 'flex', alignItems: 'center', gap: '10px',
-            background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)',
-            borderRadius: '10px', cursor: 'pointer', fontSize: '0.875rem', fontWeight: 600,
-            color: 'rgba(255,255,255,0.6)', fontFamily: 'var(--font-body)', transition: '0.2s',
-          }}
-          onMouseOver={e => {
-            (e.currentTarget as HTMLButtonElement).style.background = 'rgba(220,38,38,0.15)';
-            (e.currentTarget as HTMLButtonElement).style.color = '#f87171';
-          }}
-          onMouseOut={e => {
-            (e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.06)';
-            (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.6)';
-          }}
-        >
+        <button onClick={() => signOut({ callbackUrl: signOutUrl })}
+          style={{ width: '100%', padding: '10px 12px', display: 'flex', alignItems: 'center', gap: '10px', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '10px', cursor: 'pointer', fontSize: '0.875rem', fontWeight: 600, color: 'rgba(255,255,255,0.6)', fontFamily: 'var(--font-body)', transition: '0.2s' }}
+          onMouseOver={e => { (e.currentTarget as HTMLButtonElement).style.background = 'rgba(220,38,38,0.15)'; (e.currentTarget as HTMLButtonElement).style.color = '#f87171'; }}
+          onMouseOut={e => { (e.currentTarget as HTMLButtonElement).style.background = 'rgba(255,255,255,0.06)'; (e.currentTarget as HTMLButtonElement).style.color = 'rgba(255,255,255,0.6)'; }}>
           <span>🚪</span> Sign Out
         </button>
       </div>
