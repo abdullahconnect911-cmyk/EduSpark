@@ -4,12 +4,97 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useSession, signOut } from 'next-auth/react';
 
+type LocalUser = { name: string; email: string } | null;
+
+function AuthModal({ onClose, onLogin }: { onClose: () => void; onLogin: (user: LocalUser) => void }) {
+  const [tab, setTab] = useState<'login' | 'signup'>('login');
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [country, setCountry] = useState('');
+  const [error, setError] = useState('');
+
+  const validate = () => {
+    if (!email || !/^[^@]+@[^@]+\.[^@]+$/.test(email)) return 'Enter a valid email.';
+    if (password.length < 6) return 'Password must be at least 6 characters.';
+    if (tab === 'signup' && !name.trim()) return 'Name is required.';
+    return '';
+  };
+
+  const handleSubmit = () => {
+    const err = validate();
+    if (err) { setError(err); return; }
+    if (tab === 'signup') {
+      const users = JSON.parse(localStorage.getItem('es_users') || '[]');
+      if (users.find((u: any) => u.email === email)) { setError('Email already registered. Please log in.'); return; }
+      const user = { name: name.trim(), email, password, country };
+      localStorage.setItem('es_users', JSON.stringify([...users, user]));
+      localStorage.setItem('es_session', JSON.stringify({ name: user.name, email: user.email }));
+      onLogin({ name: user.name, email: user.email });
+    } else {
+      const users = JSON.parse(localStorage.getItem('es_users') || '[]');
+      const user = users.find((u: any) => u.email === email && u.password === password);
+      if (!user) { setError('Invalid email or password.'); return; }
+      localStorage.setItem('es_session', JSON.stringify({ name: user.name, email: user.email }));
+      onLogin({ name: user.name, email: user.email });
+    }
+    onClose();
+  };
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.5)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '16px' }} onClick={onClose}>
+      <div style={{ background: '#fff', borderRadius: '20px', padding: '32px', width: '100%', maxWidth: '420px', boxShadow: '0 20px 60px rgba(0,0,0,0.2)' }} onClick={e => e.stopPropagation()}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+          <h2 style={{ margin: 0, fontSize: '1.3rem', fontWeight: 800, color: 'var(--blue)', fontFamily: 'var(--font-head)' }}>
+            {tab === 'login' ? 'Welcome Back' : 'Create Account'}
+          </h2>
+          <button onClick={onClose} style={{ background: 'none', border: 'none', fontSize: '1.4rem', cursor: 'pointer', color: 'var(--gray)' }}>×</button>
+        </div>
+        <div style={{ display: 'flex', background: 'var(--off)', borderRadius: '10px', padding: '4px', marginBottom: '20px' }}>
+          {(['login', 'signup'] as const).map(t => (
+            <button key={t} onClick={() => { setTab(t); setError(''); }} style={{ flex: 1, padding: '9px', border: 'none', borderRadius: '8px', cursor: 'pointer', fontWeight: 700, fontSize: '0.85rem', fontFamily: 'var(--font-body)', transition: '0.2s', background: tab === t ? '#fff' : 'transparent', color: tab === t ? 'var(--blue)' : 'var(--gray)', boxShadow: tab === t ? '0 2px 8px rgba(0,0,0,0.08)' : 'none' }}>
+              {t === 'login' ? 'Log In' : 'Sign Up'}
+            </button>
+          ))}
+        </div>
+        {error && <div style={{ background: '#fee2e2', color: '#dc2626', borderRadius: '8px', padding: '10px 14px', fontSize: '0.82rem', marginBottom: '14px', fontWeight: 500 }}>{error}</div>}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          {tab === 'signup' && (
+            <input value={name} onChange={e => setName(e.target.value)} placeholder="Full Name" style={{ padding: '11px 14px', border: '1.5px solid var(--border)', borderRadius: '10px', fontSize: '0.9rem', fontFamily: 'var(--font-body)', outline: 'none' }} />
+          )}
+          <input value={email} onChange={e => setEmail(e.target.value)} placeholder="Email Address" type="email" style={{ padding: '11px 14px', border: '1.5px solid var(--border)', borderRadius: '10px', fontSize: '0.9rem', fontFamily: 'var(--font-body)', outline: 'none' }} />
+          <input value={password} onChange={e => setPassword(e.target.value)} placeholder="Password (min 6 chars)" type="password" style={{ padding: '11px 14px', border: '1.5px solid var(--border)', borderRadius: '10px', fontSize: '0.9rem', fontFamily: 'var(--font-body)', outline: 'none' }} />
+          {tab === 'signup' && (
+            <input value={country} onChange={e => setCountry(e.target.value)} placeholder="Country (e.g. Bangladesh)" style={{ padding: '11px 14px', border: '1.5px solid var(--border)', borderRadius: '10px', fontSize: '0.9rem', fontFamily: 'var(--font-body)', outline: 'none' }} />
+          )}
+          <button onClick={handleSubmit} style={{ background: 'var(--blue)', color: '#fff', border: 'none', borderRadius: '10px', padding: '13px', fontWeight: 700, fontSize: '0.95rem', cursor: 'pointer', fontFamily: 'var(--font-body)', marginTop: '4px', transition: '0.2s' }}>
+            {tab === 'login' ? 'Log In' : 'Create Account'}
+          </button>
+        </div>
+        <p style={{ textAlign: 'center', fontSize: '0.8rem', color: 'var(--gray)', marginTop: '16px', marginBottom: 0 }}>
+          {tab === 'login' ? "Don't have an account? " : 'Already have an account? '}
+          <button onClick={() => { setTab(tab === 'login' ? 'signup' : 'login'); setError(''); }} style={{ background: 'none', border: 'none', color: 'var(--blue)', fontWeight: 700, cursor: 'pointer', fontFamily: 'var(--font-body)', fontSize: '0.8rem' }}>
+            {tab === 'login' ? 'Sign Up' : 'Log In'}
+          </button>
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [localUser, setLocalUser] = useState<LocalUser>(null);
   const pathname = usePathname();
   const { data: session } = useSession();
+
+  useEffect(() => {
+    const stored = localStorage.getItem('es_session');
+    if (stored) { try { setLocalUser(JSON.parse(stored)); } catch {} }
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -29,6 +114,12 @@ export default function Navbar() {
     document.body.style.overflow = next ? 'hidden' : '';
   };
 
+  const handleLocalLogout = () => {
+    localStorage.removeItem('es_session');
+    setLocalUser(null);
+    setUserMenuOpen(false);
+  };
+
   const navLinks = [
     { href: '/destinations', label: 'Study Destinations' },
     { href: '/universities', label: 'Universities' },
@@ -36,6 +127,7 @@ export default function Navbar() {
     { href: '/about', label: 'About Us' },
     { href: '/services', label: 'Our Services' },
     { href: '/blog', label: 'Blog' },
+    { href: '/contact', label: 'Contact Us' },
   ];
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/');
@@ -103,11 +195,15 @@ export default function Navbar() {
                   </div>
                 )}
               </div>
+            ) : localUser ? (
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--blue)' }}>Welcome, {localUser.name.split(' ')[0]}</span>
+                <button onClick={handleLocalLogout} style={{ background: '#fee2e2', color: '#dc2626', border: 'none', borderRadius: '8px', padding: '7px 14px', fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer', fontFamily: 'var(--font-body)' }}>Logout</button>
+              </div>
             ) : (
-              <>
-                <Link href="/auth/login" className="nav-auth-link" style={{ display: 'none' }}>Sign In</Link>
-                <Link href="/contact" className="nav-cta-btn">Contact Us</Link>
-              </>
+              <button onClick={() => setModalOpen(true)} className="nav-cta-btn" style={{ background: 'var(--blue)', color: '#fff', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-body)' }}>
+                Sign Up / Login
+              </button>
             )}
 
             <button onClick={toggleMobile} style={{ display: 'none', flexDirection: 'column', gap: '5px', background: 'none', border: 'none', cursor: 'pointer', padding: '6px' }} id="hamburger" aria-label="Toggle menu">
@@ -135,18 +231,20 @@ export default function Navbar() {
                 🚪 Sign Out
               </button>
             </>
-          ) : (
+          ) : localUser ? (
             <>
-              <Link href="/contact" style={{ background: 'var(--orange)', color: '#fff', textAlign: 'center', borderRadius: '12px', fontWeight: 700, marginTop: '12px', padding: '14px 18px', textDecoration: 'none', display: 'block', fontSize: '1rem' }}>
-                📞 Contact Us
-              </Link>
-              <Link href="/auth/login" style={{ color: 'var(--blue)', textAlign: 'center', borderRadius: '12px', fontWeight: 600, marginTop: '8px', padding: '14px 18px', textDecoration: 'none', display: 'block', fontSize: '1rem', border: '1.5px solid var(--border)' }}>
-                Sign In
-              </Link>
+              <div style={{ textAlign: 'center', fontWeight: 700, color: 'var(--blue)', padding: '14px 18px', fontSize: '1rem' }}>Welcome, {localUser.name.split(' ')[0]}</div>
+              <button onClick={handleLocalLogout} style={{ background: '#fee2e2', color: '#dc2626', borderRadius: '12px', fontWeight: 700, padding: '14px 18px', border: 'none', cursor: 'pointer', fontSize: '1rem', width: '100%', fontFamily: 'var(--font-body)' }}>Logout</button>
             </>
+          ) : (
+            <button onClick={() => { setMobileOpen(false); setModalOpen(true); document.body.style.overflow = ''; }} style={{ background: 'var(--blue)', color: '#fff', borderRadius: '12px', fontWeight: 700, marginTop: '12px', padding: '14px 18px', border: 'none', cursor: 'pointer', fontSize: '1rem', fontFamily: 'var(--font-body)' }}>
+              Sign Up / Login
+            </button>
           )}
         </div>
       )}
+
+      {modalOpen && <AuthModal onClose={() => setModalOpen(false)} onLogin={setLocalUser} />}
 
       <style>{`
         @media (max-width: 768px) {
