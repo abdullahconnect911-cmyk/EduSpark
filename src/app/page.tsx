@@ -165,7 +165,7 @@ export default function HomePage() {
           <p>Get a free, no-obligation consultation with our expert team.</p>
           <div className="cta-btns">
             <Link href="/contact" className="btn-white">📞 Get Free Consultation</Link>
-            <a href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP || '60123456789'}`} target="_blank" rel="noopener noreferrer" className="btn-outline-w">💬 WhatsApp Us Now</a>
+            <a href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP || '8801867778759'}`} target="_blank" rel="noopener noreferrer" className="btn-outline-w">💬 WhatsApp Us Now</a>
           </div>
         </div>
       </div>

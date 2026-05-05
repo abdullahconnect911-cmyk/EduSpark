@@ -99,7 +99,7 @@ function LoginForm() {
       <div className="auth-divider">or</div>
 
       <a
-        href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP || '60123456789'}?text=Hi, I need help logging into my EduSpark account`}
+        href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP || '8801867778759'}?text=Hi, I need help logging into my EduSpark account`}
         target="_blank" rel="noopener noreferrer"
         style={{
           display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px',

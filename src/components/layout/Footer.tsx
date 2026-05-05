@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export default function Footer() {
-  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP || '60123456789';
+  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP || '8801867778759';
 
   return (
     <footer>
@@ -63,7 +63,7 @@ export default function Footer() {
           <div className="footer-col">
             <h5>Contact</h5>
             <div className="footer-ci"><span>📍</span><span>Dhaka & Puchong, Malaysia</span></div>
-            <div className="footer-ci"><span>📞</span><span>+880 1XXXXXXXXX</span></div>
+            <div className="footer-ci"><span>📞</span><span>+880 1867-778759</span></div>
             <div className="footer-ci"><span>✉️</span><span>info@eduspark.com.bd</span></div>
             <div className="footer-ci">
               <span>💬</span>

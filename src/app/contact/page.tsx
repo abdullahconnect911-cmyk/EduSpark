@@ -56,7 +56,7 @@ export default function ContactPage() {
               <div style={{ marginTop: '28px', padding: '20px', background: 'rgba(255,255,255,0.1)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.15)' }}>
                 <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#fff', marginBottom: '8px' }}>💬 Prefer WhatsApp?</div>
                 <p style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.7)', margin: 0 }}>Chat with us directly for faster responses.</p>
-                <a href="https://wa.me/60123456789" target="_blank" rel="noopener noreferrer"
+                <a href="https://wa.me/8801867778759" target="_blank" rel="noopener noreferrer"
                   style={{ display: 'inline-block', marginTop: '12px', background: '#25d366', color: '#fff', padding: '10px 20px', borderRadius: '8px', fontSize: '0.85rem', fontWeight: 700, textDecoration: 'none' }}>
                   Open WhatsApp →
                 </a>

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 export default function FloatingElements() {
   const [showTop, setShowTop] = useState(false);
-  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP || '60123456789';
+  const whatsapp = process.env.NEXT_PUBLIC_WHATSAPP || '8801867778759';
 
   useEffect(() => {
     const onScroll = () => setShowTop(window.scrollY > 400);

@@ -9,7 +9,7 @@ export default function AdminSettingsPage() {
     siteName: 'EduSpark International Study',
     siteEmail: 'info@eduspark.com.bd',
     phone: '+60 12 XXX XXXX',
-    whatsapp: '60123456789',
+    whatsapp: '8801867778759',
     address: 'Puchong, Selangor, Malaysia',
     facebook: 'https://facebook.com/eduspark',
     instagram: '',
@@ -76,7 +76,7 @@ export default function AdminSettingsPage() {
                 </div>
                 <div className="form-group">
                   <label className="form-label">WhatsApp Number</label>
-                  <input className="form-input" value={general.whatsapp} onChange={e => setGeneral(p => ({ ...p, whatsapp: e.target.value }))} placeholder="e.g. 60123456789 (no +)" />
+                  <input className="form-input" value={general.whatsapp} onChange={e => setGeneral(p => ({ ...p, whatsapp: e.target.value }))} placeholder="e.g. 8801867778759 (no +)" />
                 </div>
               </div>
               <div className="form-group">
