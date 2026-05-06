@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import HeroSection from '@/components/public/HeroSection';
 import UniversityTicker from '@/components/public/UniversityTicker';
+import CountryCarousel from '@/components/CountryCarousel';
 
 const services = [
   { icon: '🎓', title: 'Free Study Abroad Counseling', desc: 'Expert guidance tailored to your academic profile, career ambitions, and financial plan — completely free.', href: '/services#counseling' },
@@ -103,6 +104,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* COUNTRY CAROUSEL */}
+      <CountryCarousel />
 
       {/* PROCESS */}
       <section className="process-section">
