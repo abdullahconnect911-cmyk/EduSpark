@@ -120,19 +120,20 @@ section { padding: 100px 0; }
 .stat-num { font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: #fff; line-height: 1; }
 .stat-lbl { font-size: 0.75rem; color: rgba(255,255,255,0.55); font-weight: 500; margin-top: 4px; }
 .hero-card {
-  background: rgba(255,255,255,0.95); border-radius: 20px; padding: 24px;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.25); backdrop-filter: blur(20px); margin-bottom: 16px;
+  background: rgba(255,255,255,0.08); border-radius: 20px; padding: 24px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.15); backdrop-filter: blur(16px); margin-bottom: 16px;
+  border: 1px solid rgba(255,255,255,0.15);
 }
-.hero-card-title { font-size: 0.8rem; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px; }
+.hero-card-title { font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px; }
 .dest-grid-hero { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .dest-item {
   display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px;
-  background: var(--off); border: 1.5px solid var(--border); transition: all 0.25s; text-decoration: none; cursor: pointer;
+  background: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.15); transition: all 0.25s; text-decoration: none; cursor: pointer;
 }
-.dest-item:hover { border-color: var(--blue); background: var(--blue-light); transform: translateY(-2px); }
+.dest-item:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.16); transform: translateY(-2px); }
 .dest-flag { font-size: 1.5rem; flex-shrink: 0; }
-.dest-nm { font-size: 0.83rem; font-weight: 700; color: var(--text); }
-.dest-ct { font-size: 0.7rem; color: var(--gray); }
+.dest-nm { font-size: 0.83rem; font-weight: 700; color: #fff; }
+.dest-ct { font-size: 0.7rem; color: rgba(255,255,255,0.6); }
 .hero-trust-pill {
   display: flex; align-items: center; gap: 12px;
   background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px;
