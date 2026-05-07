@@ -20,9 +20,6 @@ const testimonials = [
   { name: 'Rahim Uddin', course: 'BSc Computer Science, APU Malaysia', text: 'EduSpark made the entire process effortless. From university selection to visa approval — they were with me at every step. I\'m now studying at APU and couldn\'t be happier!', init: 'R' },
   { name: 'Nadia Islam', course: 'MBA, Taylor\'s University Malaysia', text: 'I was worried about the visa process but EduSpark handled everything professionally. My visa was approved in 3 weeks. The team is incredibly responsive and caring.', init: 'N' },
   { name: 'Karim Hassan', course: 'Engineering, Sunway University', text: 'They found me a partial scholarship I didn\'t even know existed! EduSpark saved me thousands of dollars and guided me through everything with patience and expertise.', init: 'K' },
-  { name: 'Sadia Rahman', course: 'Medicine, AIMST University', text: 'The team at EduSpark truly understands the challenges Bangladeshi students face. They were available 24/7 and never left me confused. Highly recommend!', init: 'S' },
-  { name: 'Farhan Ahmed', course: 'Data Science, Multimedia University', text: 'Professional, honest, and genuinely caring. EduSpark helped me find a university that matched my grades AND my budget. Dream come true!', init: 'F' },
-  { name: 'Mitu Begum', course: 'Pharmacy, UCSI University', text: 'My parents were skeptical but EduSpark built trust step by step. Transparent fees, clear timelines, and zero hidden charges. My family is so proud now!', init: 'M' },
 ];
 
 export default function HomePage() {
@@ -134,6 +131,11 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '40px' }}>
+            <Link href="/blog" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--blue)', fontWeight: 600, fontSize: '0.95rem', textDecoration: 'none', border: '1.5px solid var(--blue)', borderRadius: '10px', padding: '11px 24px', transition: '0.2s' }}>
+              Read More Student Stories on Our Blog →
+            </Link>
           </div>
         </div>
       </section>
