@@ -34,7 +34,7 @@ function AdminLoginForm() {
         {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
           <Link href="/" style={{ textDecoration: 'none', display: 'inline-flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
-            <img src="/logo.png" alt="EduSpark International Study" style={{ height: '60px', width: 'auto', display: 'block' }} />
+            <img src="/logo.png" alt="EduSpark International Study" style={{ height: '72px', width: 'auto', display: 'block', mixBlendMode: 'screen' }} />
             <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.55)', marginTop: '2px' }}>Admin Control Panel</div>
           </Link>
         </div>

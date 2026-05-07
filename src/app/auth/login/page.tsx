@@ -34,7 +34,7 @@ function LoginForm() {
   return (
     <div className="auth-box">
       <Link href="/" className="auth-logo" style={{ display: 'flex', justifyContent: 'center' }}>
-        <img src="/logo.png" alt="EduSpark International Study" style={{ height: '52px', width: 'auto', display: 'block' }} />
+        <img src="/logo.png" alt="EduSpark International Study" style={{ height: '72px', width: 'auto', display: 'block', mixBlendMode: 'multiply' }} />
       </Link>
 
       <h1>Welcome back</h1>

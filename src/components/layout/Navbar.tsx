@@ -139,7 +139,7 @@ export default function Navbar() {
       <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
         <div className="nav-wrap">
           <Link href="/" className="nav-logo" style={{ display: 'flex', alignItems: 'center' }}>
-            <img src="/logo.png" alt="EduSpark International Study" style={{ height: '48px', width: 'auto', display: 'block' }} />
+            <img src="/logo.png" alt="EduSpark International Study" style={{ height: '64px', width: 'auto', display: 'block', mixBlendMode: 'multiply' }} />
           </Link>
 
           <div className="nav-menu" style={{ display: 'flex' }}>

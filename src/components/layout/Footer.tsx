@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="footer-brand">
             <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-              <img src="/logo.png" alt="EduSpark International Study" style={{ height: '44px', width: 'auto', display: 'block' }} />
+              <img src="/logo.png" alt="EduSpark International Study" style={{ height: '60px', width: 'auto', display: 'block', mixBlendMode: 'screen' }} />
             </Link>
             <p>Your trusted partner for international education. Based in Bangladesh — helping students reach world-class universities across the globe.</p>
             <div className="footer-socials">
