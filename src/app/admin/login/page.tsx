@@ -33,12 +33,9 @@ function AdminLoginForm() {
       <div style={{ position: 'relative', zIndex: 1, width: '100%', maxWidth: '420px' }}>
         {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: '32px' }}>
-          <Link href="/" style={{ textDecoration: 'none', display: 'inline-flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
-            <div style={{ width: '64px', height: '64px', background: 'linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08))', border: '1.5px solid rgba(255,255,255,0.2)', borderRadius: '18px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.8rem', fontWeight: 900, color: '#fff', fontFamily: 'var(--font-display)', backdropFilter: 'blur(10px)' }}>E</div>
-            <div>
-              <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#fff' }}>EduSpark</div>
-              <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.55)', marginTop: '2px' }}>Admin Control Panel</div>
-            </div>
+          <Link href="/" style={{ textDecoration: 'none', display: 'inline-flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+            <img src="/logo.png" alt="EduSpark International Study" style={{ height: '60px', width: 'auto', display: 'block' }} />
+            <div style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.55)', marginTop: '2px' }}>Admin Control Panel</div>
           </Link>
         </div>
 

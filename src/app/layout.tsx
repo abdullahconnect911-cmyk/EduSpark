@@ -8,6 +8,10 @@ import Providers from '@/components/layout/Providers';
 export const metadata: Metadata = {
   title: 'EduSpark International Study – Your Gateway to Global Education',
   description: 'Expert education consultancy helping Bangladeshi students study in Malaysia, UK, USA, Australia, Canada and Europe.',
+  icons: {
+    icon: '/favicon.png',
+    apple: '/favicon.png',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

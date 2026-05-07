@@ -9,17 +9,8 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Brand */}
           <div className="footer-brand">
-            <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-              <div style={{
-                width: '40px', height: '40px',
-                background: 'linear-gradient(135deg, var(--blue), var(--orange))',
-                borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '1.1rem', fontWeight: 900, color: '#fff', fontFamily: 'var(--font-display)',
-              }}>E</div>
-              <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.1 }}>
-                <span style={{ fontSize: '0.9rem', fontWeight: 800, color: 'rgba(255,255,255,0.9)' }}>EduSpark</span>
-                <span style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.5)' }}>International Study</span>
-              </div>
+            <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+              <img src="/logo.png" alt="EduSpark International Study" style={{ height: '44px', width: 'auto', display: 'block' }} />
             </Link>
             <p>Your trusted partner for international education. Based in Bangladesh — helping students reach world-class universities across the globe.</p>
             <div className="footer-socials">
