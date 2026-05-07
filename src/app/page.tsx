@@ -2,6 +2,7 @@ import Link from 'next/link';
 import HeroSection from '@/components/public/HeroSection';
 import UniversityTicker from '@/components/public/UniversityTicker';
 import CountryCarousel from '@/components/CountryCarousel';
+import PremiumProcess from '@/components/PremiumProcess';
 
 const services = [
   { icon: '🎓', title: 'Free Study Abroad Counseling', desc: 'Expert guidance tailored to your academic profile, career ambitions, and financial plan — completely free.', href: '/services#counseling' },
@@ -108,33 +109,8 @@ export default function HomePage() {
       {/* COUNTRY CAROUSEL */}
       <CountryCarousel />
 
-      {/* PROCESS */}
-      <section className="process-section">
-        <div className="container">
-          <div className="section-head center">
-            <div className="section-tag" style={{ background: 'rgba(255,122,0,.18)', color: '#ffb366' }}>How It Works</div>
-            <h2 className="section-title">Your Journey in 4 Simple Steps</h2>
-            <p className="section-sub" style={{ margin: '0 auto' }}>We make studying abroad clear, simple, and stress-free from start to finish.</p>
-          </div>
-          <div className="process-steps">
-            {[
-              { num: '01', icon: '💬', title: 'Free Consultation', desc: 'Discuss your goals, budget & qualifications with our expert counselors.' },
-              { num: '02', icon: '📝', title: 'Application', desc: 'We prepare & submit your complete university application package.' },
-              { num: '03', icon: '🛂', title: 'Visa Processing', desc: 'Full student visa guidance with document preparation & submission.' },
-              { num: '04', icon: '✈️', title: 'Travel & Settle', desc: 'Airport pickup, accommodation & full orientation support on arrival.' },
-            ].map((step, i) => (
-              <div key={i} className="ps">
-                <div className="ps-circle">
-                  <span className="ps-num">{step.num}</span>
-                  <span>{step.icon}</span>
-                </div>
-                <h4>{step.title}</h4>
-                <p>{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* PROCESS - PREMIUM */}
+      <PremiumProcess />
 
       {/* TESTIMONIALS */}
       <section style={{ background: 'var(--off)' }}>

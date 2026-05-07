@@ -318,15 +318,7 @@ export default function CountryCarousel() {
           </button>
         </div>
 
-        {/* Country tab pills */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '20px', flexWrap: 'wrap' }}>
-          {countries.map((cn, i) => (
-            <button key={i} onClick={() => setCurrent(i)}
-              style={{ padding: '8px 18px', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.2)', background: i === current ? 'var(--orange)' : 'rgba(255,255,255,0.07)', color: i === current ? '#fff' : 'rgba(255,255,255,0.6)', fontWeight: i === current ? 700 : 500, fontSize: '0.85rem', cursor: 'pointer', transition: 'all 0.2s', fontFamily: 'var(--font-body)' }}>
-              {cn.flag} {cn.name}
-            </button>
-          ))}
-        </div>
+
       </div>
 
       <style>{`
