@@ -412,7 +412,89 @@ export default function CoursesPage() {
         </div>
       </section>
 
-      <div className="cta-band">
+      {/* SCHOLARSHIP OPPORTUNITIES */}
+      <section style={{ background: '#eef2fb', padding: '80px 0' }}>
+        <div className="container">
+          <div className="section-head center" style={{ marginBottom: '48px' }}>
+            <div className="section-tag" style={{ background: 'rgba(255,122,0,0.12)', color: 'var(--orange)' }}>Financial Support</div>
+            <h2 className="section-title">Scholarship Opportunities</h2>
+            <p className="section-sub" style={{ margin: '0 auto' }}>
+              Many of our partner universities offer merit-based and need-based scholarships. We help you find and apply.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', marginBottom: '40px' }}>
+            {[
+              {
+                icon: '🏆',
+                title: 'Merit Scholarships',
+                desc: 'Awarded based on academic excellence. Students with strong SPM, A-Level, or equivalent results often qualify for up to 50% tuition reduction.',
+                link: '/contact',
+              },
+              {
+                icon: '🌍',
+                title: 'International Student Grants',
+                desc: 'Dedicated funding for international students from developing countries. Available at 12+ of our Malaysian partner universities.',
+                link: '/contact',
+              },
+              {
+                icon: '🎖️',
+                title: 'Government Scholarships',
+                desc: 'Bangladesh and Malaysian government-funded programs for deserving students. We guide you through every application step.',
+                link: '/contact',
+              },
+            ].map((s, i) => (
+              <div key={i} style={{
+                background: '#fff',
+                border: '1.5px solid #dde6f5',
+                borderRadius: '18px',
+                padding: '36px 28px',
+                textAlign: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '14px',
+                transition: 'all 0.3s ease',
+              }}
+                onMouseOver={e => { (e.currentTarget as HTMLDivElement).style.transform = 'translateY(-5px)'; (e.currentTarget as HTMLDivElement).style.boxShadow = '0 12px 40px rgba(11,61,145,0.1)'; (e.currentTarget as HTMLDivElement).style.borderColor = 'var(--blue)'; }}
+                onMouseOut={e => { (e.currentTarget as HTMLDivElement).style.transform = ''; (e.currentTarget as HTMLDivElement).style.boxShadow = ''; (e.currentTarget as HTMLDivElement).style.borderColor = '#dde6f5'; }}
+              >
+                <div style={{
+                  width: '68px', height: '68px',
+                  background: 'linear-gradient(135deg, #e8efff, #d4e2ff)',
+                  borderRadius: '18px',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: '1.8rem',
+                }}>
+                  {s.icon}
+                </div>
+                <h3 style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--blue)', margin: 0 }}>{s.title}</h3>
+                <p style={{ fontSize: '0.87rem', color: '#5a6a7e', lineHeight: 1.7, margin: 0 }}>{s.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ textAlign: 'center' }}>
+            <Link href="/contact" style={{
+              display: 'inline-block',
+              background: 'var(--orange)',
+              color: '#fff',
+              padding: '16px 36px',
+              borderRadius: '50px',
+              fontWeight: 700,
+              fontSize: '0.95rem',
+              textDecoration: 'none',
+              fontFamily: 'var(--font-body)',
+              transition: 'background 0.2s, transform 0.2s',
+            }}
+              onMouseOver={e => { (e.currentTarget as HTMLAnchorElement).style.background = '#e06a00'; (e.currentTarget as HTMLAnchorElement).style.transform = 'translateY(-2px)'; }}
+              onMouseOut={e => { (e.currentTarget as HTMLAnchorElement).style.background = 'var(--orange)'; (e.currentTarget as HTMLAnchorElement).style.transform = ''; }}
+            >
+              Check My Scholarship Eligibility →
+            </Link>
+          </div>
+        </div>
+      </section>
         <div className="container">
           <h2>Not Sure Which Course is Right for You?</h2>
           <p>Our expert counselors will assess your profile and suggest the best academic pathway.</p>
