@@ -495,6 +495,8 @@ export default function CoursesPage() {
           </div>
         </div>
       </section>
+
+      <div className="cta-band">
         <div className="container">
           <h2>Not Sure Which Course is Right for You?</h2>
           <p>Our expert counselors will assess your profile and suggest the best academic pathway.</p>
