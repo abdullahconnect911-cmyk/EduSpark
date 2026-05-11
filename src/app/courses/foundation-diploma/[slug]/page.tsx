@@ -111,7 +111,7 @@ export default function CourseDetailPage({ params }: { params: { slug: string } 
             <div className="cd-hero-logo" style={{ background: logoColor }}>{initials}</div>
             <div>
               <h1 className="cd-hero-title">{course.title}</h1>
-              <div className="cd-hero-uni">{course.countryFlag} {course.university} · {course.city}, {course.country}</div>
+              <div className="cd-hero-uni">{course.countryFlag} {course.university} · {course.country}</div>
               <div className="cd-hero-badges">
                 <span className="cd-badge">📅 {course.duration}</span>
                 <span className="cd-badge">🎓 {course.level}</span>
