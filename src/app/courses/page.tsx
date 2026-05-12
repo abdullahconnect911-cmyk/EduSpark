@@ -394,7 +394,14 @@ export default function CoursesPage() {
                 <div className="course-card-tags">
                   {c.tags.map(t => <span key={t} className="course-card-tag">{t}</span>)}
                 </div>
-                <Link href="/courses/foundation-diploma" className="course-card-link">
+                <Link
+                  href={
+                    c.title === 'Computer Science & IT'
+                      ? '/courses/computer-science'
+                      : '/courses/foundation-diploma'
+                  }
+                  className="course-card-link"
+                >
                   Explore Programs →
                 </Link>
               </div>
