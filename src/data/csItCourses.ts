@@ -12,6 +12,10 @@ export interface CSCourse {
   minRequirement: string;
   description: string;
   offerLetter: string;
+  tuitionRange?: string;
+  admissionProcess?: string[];
+  scholarshipInfo?: string;
+  highlights?: string[];
 }
 
 export const CS_COUNTRIES = [
