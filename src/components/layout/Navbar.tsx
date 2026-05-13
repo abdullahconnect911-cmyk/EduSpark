@@ -132,7 +132,7 @@ export default function Navbar() {
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/');
   const initials = session?.user?.name?.split(' ').map((n: string) => n[0]).slice(0, 2).join('').toUpperCase() || '?';
-  const dashHref = session?.user?.role === 'admin' ? '/dashboard/admin' : '/dashboard/student';
+  const dashHref = session?.user?.role === 'admin' ? '/admin/dashboard' : '/dashboard/student';
 
   return (
     <>
@@ -173,9 +173,7 @@ export default function Navbar() {
                     </div>
                     {[
                       { href: dashHref, icon: '🏠', label: 'Dashboard' },
-                      { href: `${dashHref}/profile`, icon: '👤', label: 'My Profile' },
                       { href: `${dashHref}/applications`, icon: '📋', label: 'Applications' },
-                      { href: `${dashHref}/notifications`, icon: '🔔', label: 'Notifications' },
                     ].map(item => (
                       <Link key={item.href} href={item.href} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '9px 12px', borderRadius: '9px', textDecoration: 'none', fontSize: '0.85rem', color: 'var(--text)', fontWeight: 500, transition: '0.15s' }}
                         onMouseOver={e => (e.currentTarget.style.background = 'var(--off)')}
