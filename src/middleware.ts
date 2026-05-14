@@ -2,7 +2,8 @@ import { auth } from '@/auth';
 import { NextResponse } from 'next/server';
 
 export default auth((req) => {
-  const { nextUrl, auth: session } = req as any;
+  const session = (req as any).auth;
+  const { nextUrl } = req;
   const isLoggedIn = !!session;
   const role = session?.user?.role;
   const path = nextUrl.pathname;
