@@ -1,0 +1,553 @@
+export interface TouristAttraction {
+  name: string;
+  location: string;
+  description: string;
+  emoji: string;
+  type: 'Nature' | 'Heritage' | 'City' | 'Culture' | 'Adventure' | 'Beach' | 'Museum' | 'Architecture';
+}
+
+export interface CountryFact {
+  label: string;
+  value: string;
+  icon: string;
+}
+
+export interface Country {
+  slug: string;
+  name: string;
+  flag: string;
+  tagline: string;
+  heroDesc: string;
+  fullDesc: string;
+  whyStudy: string[];
+  keyFacts: CountryFact[];
+  attractions: TouristAttraction[];
+  visaInfo: string;
+  costOfLiving: string;
+  featured: boolean;
+  accentColor: string;
+}
+
+export const countries: Country[] = [
+  // ─── MALAYSIA ────────────────────────────────────────────────────────────
+  {
+    slug: 'malaysia',
+    name: 'Malaysia',
+    flag: '🇲🇾',
+    tagline: 'Most Affordable — Top Choice',
+    accentColor: '#0052cc',
+    featured: true,
+    heroDesc: 'Malaysia is the #1 destination for international students — world-class universities, affordable fees, no language barrier, and a welcoming multicultural environment.',
+    fullDesc: 'Malaysia stands out as one of Asia\'s most vibrant study destinations, offering a unique blend of quality education, cultural diversity, and affordability. Home to over 20 public and 40 private universities, Malaysia has positioned itself as a regional education hub. Students benefit from English-medium instruction at most institutions, a warm tropical climate, and one of the most cosmopolitan lifestyles in Southeast Asia. The country\'s strategic location makes it a gateway to the rest of Asia.',
+    whyStudy: [
+      'Affordable tuition fees (RM 15,000–50,000/yr) compared to Western countries',
+      'Most programmes taught in English — no language barrier',
+      'Part-time work allowed (20 hrs/week) during studies',
+      'Easy and affordable student visa process',
+      'Strong international student community from 150+ countries',
+      'Globally recognised qualifications and dual-degree partnerships',
+      'Safe, multicultural and Muslim-friendly environment',
+    ],
+    keyFacts: [
+      { label: 'Capital', value: 'Kuala Lumpur', icon: '🏙️' },
+      { label: 'Language', value: 'Malay & English', icon: '🗣️' },
+      { label: 'Currency', value: 'Malaysian Ringgit (MYR)', icon: '💰' },
+      { label: 'Climate', value: 'Tropical (25–35°C)', icon: '☀️' },
+      { label: 'Cost of Living', value: 'USD 500–900/month', icon: '🏠' },
+      { label: 'Student Visa', value: 'eVAL / EMGS', icon: '📋' },
+      { label: 'Time Zone', value: 'UTC+8 (MYT)', icon: '🕐' },
+      { label: 'Religion', value: 'Islam (official), multi-faith', icon: '🕌' },
+    ],
+    visaInfo: 'International students need an Education Malaysia Global Services (EMGS) approval before applying for a Student Pass. The process is handled by your university. EduSpark assists with all documentation at no extra cost.',
+    costOfLiving: 'USD 500–900/month including accommodation, food, and transport. Kuala Lumpur is significantly cheaper than Singapore, UK, or Australia.',
+    attractions: [
+      { name: 'Petronas Twin Towers', location: 'Kuala Lumpur', emoji: '🏙️', type: 'Architecture', description: 'Iconic 88-floor twin skyscrapers that dominated the world\'s skyline from 1998 to 2004. The Sky Bridge on the 41st floor offers breathtaking panoramic views of KL. A true symbol of Malaysia\'s modernisation and ambition.' },
+      { name: 'Batu Caves', location: 'Selangor', emoji: '🛕', type: 'Heritage', description: 'A stunning limestone hill complex housing a series of caves and Hindu temples. The 272 colourful steps lead up to the main Temple Cave, guarded by the world\'s tallest Lord Murugan statue standing at 42.7 metres.' },
+      { name: 'Penang George Town', location: 'Penang', emoji: '🎨', type: 'Culture', description: 'A UNESCO World Heritage city blending colonial architecture, vibrant street art, and diverse food culture. Famous for its Nyonya cuisine, clan jetties, and beautifully restored shophouses that tell the story of generations.' },
+      { name: 'Mount Kinabalu', location: 'Sabah, Borneo', emoji: '⛰️', type: 'Adventure', description: 'Southeast Asia\'s highest peak at 4,095m, a UNESCO World Heritage Site and one of the world\'s great trekking destinations. The mountain is surrounded by Kinabalu National Park, home to over 5,000 plant species.' },
+      { name: 'Langkawi', location: 'Kedah', emoji: '🏖️', type: 'Beach', description: 'An archipelago of 99 islands in the Andaman Sea, offering pristine beaches, duty-free shopping, mangrove tours, and the stunning Langkawi Sky Bridge. A perfect tropical paradise for relaxation and adventure alike.' },
+      { name: 'Cameron Highlands', location: 'Pahang', emoji: '🍵', type: 'Nature', description: 'Malaysia\'s most extensive hill resort, famous for its rolling tea plantations, strawberry farms, and cool misty climate. A refreshing escape from the tropical heat, offering nature trails and charming colonial-era bungalows.' },
+      { name: 'Taman Negara', location: 'Pahang', emoji: '🌿', type: 'Nature', description: 'One of the world\'s oldest rainforests at 130 million years old — older than the Amazon. Home to tigers, elephants, and thousands of species. Experience canopy walkways, night jungle treks, and river safaris.' },
+      { name: 'Malacca City', location: 'Malacca', emoji: '🏰', type: 'Heritage', description: 'A UNESCO World Heritage city and the birthplace of the Malayan Empire. Featuring Dutch-era buildings, Portuguese forts, Chinese temples, and the iconic trishaws decorated with flowers — a living museum of Southeast Asian history.' },
+    ],
+  },
+
+  // ─── AUSTRALIA ───────────────────────────────────────────────────────────
+  {
+    slug: 'australia',
+    name: 'Australia',
+    flag: '🇦🇺',
+    tagline: 'PR Pathway Available',
+    accentColor: '#00843d',
+    featured: false,
+    heroDesc: 'Australia offers world-class education with clear pathways to permanent residency, excellent quality of life, and 20 hours per week work rights for students.',
+    fullDesc: 'Australia is home to seven of the world\'s top 100 universities and consistently ranks among the top global study destinations. Known for its high standard of living, multicultural society, and stunning natural landscapes, Australia attracts over 600,000 international students annually. The country\'s strong post-study work visa options and clear PR pathways make it especially attractive for students planning long-term settlement. From Sydney\'s iconic harbour to Melbourne\'s coffee culture, student life in Australia is truly world-class.',
+    whyStudy: [
+      'Seven universities in QS World Top 100',
+      'Post-study work visa of 2–4 years (more for regional areas)',
+      'Right to work 48 hours per fortnight during studies',
+      'Clear pathway to Permanent Residency through skilled migration',
+      'Multicultural and safe environment for international students',
+      'High-quality research facilities and industry connections',
+      'Vibrant student cities: Sydney, Melbourne, Brisbane, Perth',
+    ],
+    keyFacts: [
+      { label: 'Capital', value: 'Canberra', icon: '🏙️' },
+      { label: 'Language', value: 'English', icon: '🗣️' },
+      { label: 'Currency', value: 'Australian Dollar (AUD)', icon: '💰' },
+      { label: 'Climate', value: 'Varies: 15–35°C', icon: '☀️' },
+      { label: 'Cost of Living', value: 'USD 1,200–2,000/month', icon: '🏠' },
+      { label: 'Student Visa', value: 'Subclass 500', icon: '📋' },
+      { label: 'Time Zone', value: 'UTC+8 to UTC+11', icon: '🕐' },
+      { label: 'Intake', value: 'Feb & July', icon: '📅' },
+    ],
+    visaInfo: 'Apply for a Student Visa (Subclass 500) after receiving your Confirmation of Enrolment (CoE). You\'ll need proof of OSHC health insurance, sufficient funds, and IELTS 6.0+. EduSpark guides the complete process.',
+    costOfLiving: 'USD 1,200–2,000/month depending on city. Sydney and Melbourne are the most expensive; regional areas offer more affordable living with extra PR benefits.',
+    attractions: [
+      { name: 'Sydney Opera House', location: 'Sydney, NSW', emoji: '🎭', type: 'Architecture', description: 'One of the 20th century\'s greatest buildings and a UNESCO World Heritage Site. This iconic sail-shaped structure hosts over 1,500 performances a year and is the symbol of modern Australia. The guided tours and harbour views are unmissable.' },
+      { name: 'Great Barrier Reef', location: 'Queensland', emoji: '🐠', type: 'Nature', description: 'The world\'s largest coral reef system stretching 2,300km, visible from space. Home to 1,500 species of fish, 4,000 types of mollusc, and 240 species of birds. Snorkelling, diving, and scenic flights reveal an underwater world of astonishing beauty.' },
+      { name: 'Uluru (Ayers Rock)', location: 'Northern Territory', emoji: '🗿', type: 'Heritage', description: 'A massive 348-metre sandstone monolith sacred to the Anangu Aboriginal people. The rock changes colour dramatically at sunrise and sunset — from orange to deep red and violet. A spiritual and awe-inspiring journey to the heart of the Australian Outback.' },
+      { name: 'Great Ocean Road', location: 'Victoria', emoji: '🌊', type: 'Nature', description: 'One of the world\'s greatest road trips stretching 243km along Australia\'s rugged southern coastline. The Twelve Apostles limestone stacks rising from the Southern Ocean are among Australia\'s most photographed natural wonders.' },
+      { name: 'Bondi Beach', location: 'Sydney, NSW', emoji: '🏄', type: 'Beach', description: 'Australia\'s most famous beach and a global icon of the Australian lifestyle. The golden crescent of sand, surf culture, coastal walks, and vibrant café scene make it a must-visit destination for every student living in Sydney.' },
+      { name: 'Melbourne Laneways', location: 'Melbourne, VIC', emoji: '🎨', type: 'Culture', description: 'Melbourne\'s network of hidden laneways filled with world-class street art, secret coffee shops, boutique bars, and independent galleries. Hosier Lane is Australia\'s most visited street art destination, with ever-changing murals.' },
+      { name: 'Daintree Rainforest', location: 'Queensland', emoji: '🌴', type: 'Nature', description: 'The world\'s oldest tropical rainforest at 180 million years old, a UNESCO World Heritage Area. Home to 3,000 plant species, cassowaries, crocodiles, and tree kangaroos. A place where the rainforest meets the Great Barrier Reef.' },
+      { name: 'Whitsunday Islands', location: 'Queensland', emoji: '⛵', type: 'Beach', description: '74 island paradise in the heart of the Great Barrier Reef Marine Park. Whitehaven Beach — famous for its pure white silica sand — regularly tops lists of the world\'s most beautiful beaches. Sailing, snorkelling, and island-hopping await.' },
+    ],
+  },
+
+  // ─── UNITED KINGDOM ──────────────────────────────────────────────────────
+  {
+    slug: 'uk',
+    name: 'United Kingdom',
+    flag: '🇬🇧',
+    tagline: 'World Ranked Universities',
+    accentColor: '#012169',
+    featured: false,
+    heroDesc: 'Home to Oxford, Cambridge, and Imperial — the UK offers globally recognised degrees, a 2-year post-study work visa, and centuries of academic tradition.',
+    fullDesc: 'The United Kingdom is home to some of the world\'s oldest and most prestigious universities, with Oxford and Cambridge dating back to the 12th and 13th centuries. With 18 universities in the global top 100, the UK remains one of the world\'s most sought-after study destinations. The Graduate Route visa allows international students to stay and work for 2 years after graduating (3 years for PhD holders), making the UK an excellent long-term career springboard. From the bustling streets of London to the historic beauty of Edinburgh, student life in the UK is rich and diverse.',
+    whyStudy: [
+      '18 universities in QS World Top 100',
+      '2-year Graduate Route post-study work visa (3 years for PhD)',
+      'Shorter degree durations — 3-year Bachelor\'s, 1-year Master\'s',
+      'Global recognition of UK qualifications in every industry',
+      'Multicultural society with 500,000+ international students',
+      'World-leading research output and industry connections',
+      'Rich cultural experience — arts, history, sports, and innovation',
+    ],
+    keyFacts: [
+      { label: 'Capital', value: 'London', icon: '🏙️' },
+      { label: 'Language', value: 'English', icon: '🗣️' },
+      { label: 'Currency', value: 'British Pound (GBP)', icon: '💰' },
+      { label: 'Climate', value: 'Temperate (5–22°C)', icon: '🌦️' },
+      { label: 'Cost of Living', value: 'USD 1,200–2,500/month', icon: '🏠' },
+      { label: 'Student Visa', value: 'UK Student Visa', icon: '📋' },
+      { label: 'Time Zone', value: 'UTC / UTC+1 (BST)', icon: '🕐' },
+      { label: 'Intake', value: 'September & January', icon: '📅' },
+    ],
+    visaInfo: 'Apply for a UK Student Visa using your CAS (Confirmation of Acceptance for Studies) number from your university. You\'ll need IELTS 6.0–7.0, proof of funds (£1,334/month in London), and a valid passport.',
+    costOfLiving: 'USD 1,200–2,500/month. London is the most expensive; cities like Manchester, Leeds, and Birmingham offer the same quality at lower costs.',
+    attractions: [
+      { name: 'Big Ben & Houses of Parliament', location: 'London, England', emoji: '🕰️', type: 'Architecture', description: 'The Elizabeth Tower housing Big Ben is the most iconic clock tower in the world and a defining symbol of London. The magnificent Gothic Revival Palace of Westminster alongside the River Thames is a UNESCO World Heritage Site and the seat of UK democracy.' },
+      { name: 'Edinburgh Castle', location: 'Edinburgh, Scotland', emoji: '🏰', type: 'Heritage', description: 'Dominating the Edinburgh skyline from an ancient volcanic rock, this historic fortress has been a royal residence, military stronghold, and state prison. It houses the Scottish Crown Jewels and the Stone of Destiny. The Royal Mile leading down from the castle is lined with history.' },
+      { name: 'Stonehenge', location: 'Wiltshire, England', emoji: '🗿', type: 'Heritage', description: 'A prehistoric monument over 5,000 years old and one of the world\'s greatest mysteries. The massive standing stones — some weighing up to 25 tonnes — were transported from Wales hundreds of miles away. A UNESCO World Heritage Site that continues to fascinate and mystify.' },
+      { name: 'The Lake District', location: 'Cumbria, England', emoji: '⛰️', type: 'Nature', description: 'England\'s largest National Park — a UNESCO World Heritage landscape of mountains, lakes, and charming villages. Home to Scafell Pike, England\'s highest peak, and the inspiration behind Beatrix Potter and William Wordsworth. Perfect for hiking, kayaking, and countryside escapes.' },
+      { name: 'Tower of London', location: 'London, England', emoji: '👑', type: 'Heritage', description: 'Nearly 1,000 years of history within these ancient walls — a royal palace, prison, and home to the Crown Jewels. The Tower has housed royalty, seen executions, and kept ravens since Charles II. The Beefeater guards and jewel vault are highlights of any London visit.' },
+      { name: 'Loch Ness', location: 'Scottish Highlands, Scotland', emoji: '🌊', type: 'Nature', description: 'Britain\'s largest freshwater lake by volume, set amid the dramatic Scottish Highlands. Famous worldwide for the legend of the Loch Ness Monster, it draws millions of visitors. The stunning Urquhart Castle ruins on the lakeshore add to its ancient, mysterious atmosphere.' },
+      { name: 'Bath Roman Baths', location: 'Bath, England', emoji: '🛁', type: 'Heritage', description: 'One of the best-preserved Roman bathing complexes in the world, built around naturally heated mineral springs. Alongside the magnificent Georgian Royal Crescent and Pump Room, Bath is a UNESCO World Heritage City — an immaculate blend of Roman and 18th-century grandeur.' },
+      { name: 'Snowdonia National Park', location: 'Wales', emoji: '🏔️', type: 'Adventure', description: 'Wales\'s most famous National Park, home to Snowdon — the highest mountain in England and Wales. With stunning lakes, waterfalls, and ancient castles, Snowdonia offers world-class hiking, mountain biking, and zip-lining against a backdrop of dramatic Celtic landscapes.' },
+    ],
+  },
+
+  // ─── USA ─────────────────────────────────────────────────────────────────
+  {
+    slug: 'usa',
+    name: 'United States',
+    flag: '🇺🇸',
+    tagline: 'World Class Education',
+    accentColor: '#002868',
+    featured: false,
+    heroDesc: 'Home to MIT, Harvard, and Stanford — the USA offers unmatched academic excellence, Silicon Valley access, and 3-year OPT work authorisation for STEM graduates.',
+    fullDesc: 'The United States hosts the world\'s largest number of top-ranked universities and remains the most popular destination for international students globally, attracting over one million students each year. American universities are known for their research funding, campus facilities, and industry connections — particularly in Silicon Valley and Wall Street. The F-1 student visa allows 3 years of Optional Practical Training (OPT) for STEM graduates, making the USA a prime destination for technology and engineering students aiming to launch international careers.',
+    whyStudy: [
+      'Most Nobel Prize-winning universities in the world',
+      '3-year OPT work authorisation for STEM graduates',
+      'Access to Silicon Valley, Wall Street, and global industry leaders',
+      'Diverse range of programmes and specialisations',
+      'Strong on-campus culture, sports, and student life',
+      'Research funding and assistantship opportunities for graduates',
+      'Internationally recognised qualifications across all industries',
+    ],
+    keyFacts: [
+      { label: 'Capital', value: 'Washington D.C.', icon: '🏙️' },
+      { label: 'Language', value: 'English', icon: '🗣️' },
+      { label: 'Currency', value: 'US Dollar (USD)', icon: '💰' },
+      { label: 'Climate', value: 'Varies by region', icon: '🌤️' },
+      { label: 'Cost of Living', value: 'USD 1,000–2,500/month', icon: '🏠' },
+      { label: 'Student Visa', value: 'F-1 Student Visa', icon: '📋' },
+      { label: 'Time Zone', value: 'UTC-5 to UTC-8', icon: '🕐' },
+      { label: 'Intake', value: 'Fall (Aug) & Spring (Jan)', icon: '📅' },
+    ],
+    visaInfo: 'Apply for an F-1 Student Visa after receiving Form I-20 from your admitted university. You\'ll need TOEFL/IELTS, proof of funds, and an SEVIS fee payment. Visa interviews are at the US Embassy.',
+    costOfLiving: 'USD 1,000–2,500/month depending on city. New York and San Francisco are the most expensive; cities like Austin, Tampa, and Tempe are significantly more affordable.',
+    attractions: [
+      { name: 'Grand Canyon', location: 'Arizona', emoji: '🏜️', type: 'Nature', description: 'One of the Seven Natural Wonders of the World — a 446km long, 29km wide, and 1.6km deep gorge carved by the Colorado River over millions of years. The South Rim offers iconic overlooks, while the Colorado River below beckons adventurous rafters and hikers.' },
+      { name: 'New York City', location: 'New York', emoji: '🗽', type: 'City', description: 'The city that never sleeps — Times Square\'s neon lights, Central Park\'s green expanse, the Statue of Liberty\'s torch, and the Metropolitan Museum\'s treasures. New York is a global capital of finance, arts, culture, and fashion, unlike any city on Earth.' },
+      { name: 'Yellowstone National Park', location: 'Wyoming', emoji: '🌋', type: 'Nature', description: 'America\'s first and most famous National Park, sitting on one of the world\'s largest active volcanoes. Home to the Old Faithful geyser, rainbow-coloured hot springs, bison herds, wolves, and grizzly bears in their natural habitat — a truly wild America.' },
+      { name: 'Yosemite National Park', location: 'California', emoji: '🌲', type: 'Nature', description: 'A UNESCO World Heritage Site and temple of the natural world. El Capitan\'s sheer granite face, Half Dome\'s iconic silhouette, and Yosemite Falls — one of America\'s tallest waterfalls — inspire awe in every visitor. A rock climber\'s ultimate pilgrimage.' },
+      { name: 'Las Vegas Strip', location: 'Nevada', emoji: '🎰', type: 'City', description: 'The world\'s entertainment capital — a 6.7km stretch of luxury casino resorts, world-class shows, Michelin-starred restaurants, and dazzling neon lights in the Nevada Desert. From the replica Eiffel Tower to the ancient Egypt-themed Luxor, Vegas is an adult playground like no other.' },
+      { name: 'Maui, Hawaii', location: 'Hawaii', emoji: '🌺', type: 'Beach', description: 'Consistently voted one of the world\'s best islands, offering pristine beaches, lush rainforests, the massive Haleakalā volcano crater, and the famous Road to Hana. Hawaiian culture, surfing, whale watching, and sunset mai tais make Maui a true paradise.' },
+      { name: 'Washington D.C. Monuments', location: 'Washington D.C.', emoji: '🏛️', type: 'Heritage', description: 'The heart of American democracy — the Lincoln Memorial, Washington Monument, Jefferson Memorial, and the Capitol Building form a majestic skyline on the National Mall. The Smithsonian museums (all free) offer world-class collections of art, history, and science.' },
+      { name: 'Antelope Canyon', location: 'Arizona', emoji: '🌅', type: 'Nature', description: 'The most-photographed slot canyon in the American Southwest — its smooth, flowing sandstone walls create an otherworldly corridor of light beams and orange-red curves. Located on Navajo land near Page, Arizona, it is a truly magical photography destination.' },
+    ],
+  },
+
+  // ─── CANADA ──────────────────────────────────────────────────────────────
+  {
+    slug: 'canada',
+    name: 'Canada',
+    flag: '🇨🇦',
+    tagline: 'Immigration Friendly',
+    accentColor: '#d80621',
+    featured: false,
+    heroDesc: 'Canada\'s welcoming immigration policies, 3-year post-graduation work permit, and world-class universities make it the top choice for students planning Permanent Residency.',
+    fullDesc: 'Canada consistently ranks as one of the most welcoming countries in the world for immigrants and international students. With universities like the University of Toronto and McGill in the global top 100, Canada offers world-class education at significantly lower costs than the UK or USA. The Post-Graduation Work Permit (PGWP) allows students to work in Canada for up to 3 years after graduating, and the Express Entry system provides a clear pathway to Permanent Residency. Canadian cities — Toronto, Vancouver, Montreal — are consistently ranked among the world\'s most liveable.',
+    whyStudy: [
+      'Post-Graduation Work Permit (PGWP) up to 3 years',
+      'Clear Express Entry pathway to Permanent Residency',
+      'Lower tuition and cost of living vs. USA and UK',
+      'Safe, multicultural, and welcoming to immigrants',
+      'World-class universities in top 100 globally',
+      'Co-op programmes with paid industry work experience',
+      'Universal healthcare for international students in most provinces',
+    ],
+    keyFacts: [
+      { label: 'Capital', value: 'Ottawa', icon: '🏙️' },
+      { label: 'Language', value: 'English & French', icon: '🗣️' },
+      { label: 'Currency', value: 'Canadian Dollar (CAD)', icon: '💰' },
+      { label: 'Climate', value: 'Varies: -20°C to 30°C', icon: '❄️' },
+      { label: 'Cost of Living', value: 'USD 900–1,800/month', icon: '🏠' },
+      { label: 'Student Visa', value: 'Study Permit', icon: '📋' },
+      { label: 'Time Zone', value: 'UTC-3.5 to UTC-8', icon: '🕐' },
+      { label: 'Intake', value: 'Jan, May & September', icon: '📅' },
+    ],
+    visaInfo: 'Apply for a Canadian Study Permit after receiving your Letter of Acceptance (LoA). Processing takes 8–12 weeks. You\'ll need proof of funds (CAD 10,000/year), IELTS/TOEFL, and a medical exam for some countries.',
+    costOfLiving: 'USD 900–1,800/month. Vancouver and Toronto are the most expensive; cities like Halifax, Winnipeg, and Cape Breton offer excellent value with strong PR pathways.',
+    attractions: [
+      { name: 'Niagara Falls', location: 'Ontario', emoji: '💧', type: 'Nature', description: 'One of the world\'s most famous waterfalls — three massive falls straddling the US-Canada border that process 168,000 cubic metres of water per minute. The Canadian Horseshoe Falls is the most dramatic. The Maid of the Mist boat ride brings you face-to-face with its thundering power.' },
+      { name: 'Banff National Park', location: 'Alberta', emoji: '🏔️', type: 'Nature', description: 'Canada\'s oldest national park and one of the most spectacular landscapes on Earth. Turquoise glacial lakes, the Columbia Icefield, and snow-capped Rockies create a jaw-dropping backdrop for hiking, skiing, and wildlife viewing — spot elk, bears, and mountain goats in the wild.' },
+      { name: 'Old Quebec City', location: 'Quebec', emoji: '🏰', type: 'Heritage', description: 'North America\'s only fortified city north of Mexico and a UNESCO World Heritage Site. The walled Old Town, Château Frontenac, cobblestone streets, and French-Canadian cuisine create a European ambiance unlike anywhere else in North America. Magical in every season.' },
+      { name: 'Northern Lights (Yukon)', location: 'Yukon Territory', emoji: '🌌', type: 'Nature', description: 'Whitehorse, Yukon, is one of the best places on Earth to witness the Aurora Borealis — nature\'s greatest light show. From September to April, the night sky dances in curtains of green, purple, and pink. Dog sledding, ice fishing, and First Nations cultural experiences complete the adventure.' },
+      { name: 'Vancouver Stanley Park', location: 'British Columbia', emoji: '🌲', type: 'Nature', description: 'One of the world\'s great urban parks — a 405-hectare rainforest peninsula just minutes from downtown Vancouver. The Seawall path, totem poles, aquarium, and panoramic mountain-and-ocean views make it a beloved landmark. A perfect introduction to the Pacific Northwest lifestyle.' },
+      { name: 'CN Tower, Toronto', location: 'Ontario', emoji: '🗼', type: 'Architecture', description: 'Towering 553 metres above Toronto\'s skyline, the CN Tower was the world\'s tallest free-standing structure for 32 years. The glass floor, EdgeWalk (outdoor walk at 356m), and 360° restaurant offer thrilling perspectives of Lake Ontario and the city grid below.' },
+      { name: 'Prince Edward Island', location: 'PEI', emoji: '🌾', type: 'Nature', description: 'Canada\'s smallest province — a pastoral island of red sand beaches, rolling green hills, lobster shacks, and the birthplace of Anne of Green Gables. Its relaxed pace, fresh seafood, and Golf courses amid farmland make it a charming and distinctly Canadian escape.' },
+      { name: 'Tofino', location: 'British Columbia', emoji: '🌊', type: 'Adventure', description: 'A remote surf town on Vancouver Island\'s wild Pacific coast — the surfing capital of Canada. Ancient old-growth rainforest meets dramatic Pacific waves at Long Beach. Storm watching in winter, whale watching in spring, and surf lessons year-round make Tofino uniquely compelling.' },
+    ],
+  },
+
+  // ─── GERMANY ─────────────────────────────────────────────────────────────
+  {
+    slug: 'germany',
+    name: 'Germany',
+    flag: '🇩🇪',
+    tagline: 'Tuition-Free Options',
+    accentColor: '#1a1a1a',
+    featured: false,
+    heroDesc: 'Germany offers tuition-free public university education, a thriving engineering and technology sector, and a direct path into the heart of the European job market.',
+    fullDesc: 'Germany is Europe\'s largest economy and a global leader in engineering, automotive, and technology industries. Its public universities charge no tuition fees for international students — only a small semester contribution of around €300. With universities like TU Munich and Heidelberg consistently in global top rankings, and with over 18,000 English-taught programmes available, Germany has transformed itself into a top destination for international students. Post-study, graduates can stay 18 months to find a job, and a permanent residence permit is achievable within 5 years.',
+    whyStudy: [
+      'Tuition-free at all public universities (only ~€300/semester fee)',
+      'Strong engineering, science, and technology programmes',
+      '18-month job-seeker visa after graduation',
+      'EU job market access — work across 27 European countries',
+      'Over 18,000 English-taught programmes available',
+      'Strong research culture and industry-university collaboration',
+      'Permanent residency possible after 5 years',
+    ],
+    keyFacts: [
+      { label: 'Capital', value: 'Berlin', icon: '🏙️' },
+      { label: 'Language', value: 'German (English widely used)', icon: '🗣️' },
+      { label: 'Currency', value: 'Euro (EUR)', icon: '💰' },
+      { label: 'Climate', value: 'Temperate (0–25°C)', icon: '🌤️' },
+      { label: 'Cost of Living', value: 'USD 700–1,200/month', icon: '🏠' },
+      { label: 'Student Visa', value: 'German Student Visa', icon: '📋' },
+      { label: 'Time Zone', value: 'UTC+1 / UTC+2 (CEST)', icon: '🕐' },
+      { label: 'Intake', value: 'October & April', icon: '📅' },
+    ],
+    visaInfo: 'Non-EU students need a German Student Visa. You\'ll need your admission letter, a blocked account (€11,208+), health insurance, and language proof. EduSpark assists with the application through uni-assist.',
+    costOfLiving: 'USD 700–1,200/month. Berlin and Munich are the most expensive; Heidelberg, Freiburg, and smaller university cities offer very affordable student living.',
+    attractions: [
+      { name: 'Brandenburg Gate', location: 'Berlin', emoji: '🏛️', type: 'Heritage', description: 'Germany\'s most iconic landmark — an 18th-century neoclassical triumphal arch that witnessed the division and reunification of Germany. Standing at the heart of Berlin, it is a symbol of unity, freedom, and European history. Pariser Platz around it buzzes with life day and night.' },
+      { name: 'Neuschwanstein Castle', location: 'Bavaria', emoji: '🏰', type: 'Architecture', description: 'The fairy-tale castle that inspired Disney\'s Sleeping Beauty, perched dramatically on a rugged hilltop in the Bavarian Alps. Commissioned by King Ludwig II in 1869, it is the most visited castle in Germany. The surrounding Alpine landscapes of forests, gorges, and waterfalls are equally spectacular.' },
+      { name: 'Rhine Valley', location: 'Rhineland-Palatinate', emoji: '🍷', type: 'Nature', description: 'A UNESCO World Heritage landscape — the Middle Rhine Valley is lined with medieval castles, vineyard-covered hillsides, and charming villages. Boat cruises past Loreley Rock and wine tasting in Rüdesheim offer an unforgettable glimpse of romantic German culture and history.' },
+      { name: 'Cologne Cathedral', location: 'Cologne', emoji: '⛪', type: 'Architecture', description: 'Germany\'s most visited landmark and a UNESCO World Heritage Site. The twin spires of this Gothic masterpiece took over 600 years to complete and dominate the Cologne skyline. The cathedral houses the Shrine of the Three Kings and offers panoramic Rhine views from its towers.' },
+      { name: 'Black Forest', location: 'Baden-Württemberg', emoji: '🌲', type: 'Nature', description: 'The enchanted forest of German folklore — a vast landscape of dense fir and pine trees, hilltop villages, cuckoo clocks, and the source of the Danube. The Baden-Baden spa resort, Feldberg peak, and cherry cake (Schwarzwälderkirschtorte) are quintessential Black Forest experiences.' },
+      { name: 'Oktoberfest, Munich', location: 'Munich, Bavaria', emoji: '🍺', type: 'Culture', description: 'The world\'s largest folk festival — 17 days of beer halls, Bavarian food, traditional dirndls and lederhosen, carnival rides, and six million visitors annually. Even outside Oktoberfest season, Munich\'s English Garden, Marienplatz, and Nymphenburg Palace are world-class attractions.' },
+      { name: 'Berlin Wall Memorial', location: 'Berlin', emoji: '🕊️', type: 'Heritage', description: 'A powerful memorial at Bernauer Strasse preserving a section of the Wall that divided Berlin for 28 years. The documentation centre, observation tower, and Chapel of Reconciliation tell the story of Germany\'s division and the courage of those who sought freedom.' },
+      { name: 'Zugspitze', location: 'Bavaria', emoji: '⛷️', type: 'Adventure', description: 'Germany\'s highest peak at 2,962m, offering panoramic views across four countries — Germany, Austria, Switzerland, and Italy. Accessible by cogwheel railway and cable car, it provides world-class skiing in winter and breathtaking Alpine hiking in summer.' },
+    ],
+  },
+
+  // ─── JAPAN ───────────────────────────────────────────────────────────────
+  {
+    slug: 'japan',
+    name: 'Japan',
+    flag: '🇯🇵',
+    tagline: 'Technology & Culture',
+    accentColor: '#bc002d',
+    featured: false,
+    heroDesc: 'Japan combines cutting-edge technology education, MEXT scholarships, and a rich cultural experience that is entirely unlike anywhere else in the world.',
+    fullDesc: 'Japan is a fascinating blend of ancient tradition and technological innovation, making it one of the most unique study destinations in the world. The country hosts some of Asia\'s top universities — including the University of Tokyo and Kyoto University — with particular strengths in engineering, robotics, and computer science. The Japanese Government\'s MEXT scholarship covers full tuition, living expenses, and airfare for selected students. With ultra-low crime rates, an extraordinary food culture, and some of the world\'s most efficient infrastructure, Japan offers an unforgettable student experience.',
+    whyStudy: [
+      'MEXT Government Scholarship covering full tuition and living costs',
+      'World-leading universities in engineering, robotics, and AI',
+      'Extremely safe country with one of the lowest crime rates globally',
+      'Rich cultural immersion — unique in the entire world',
+      'High employment rate for international graduates',
+      'Excellent public infrastructure and quality of life',
+      'Part-time work up to 28 hours per week during studies',
+    ],
+    keyFacts: [
+      { label: 'Capital', value: 'Tokyo', icon: '🏙️' },
+      { label: 'Language', value: 'Japanese (English available)', icon: '🗣️' },
+      { label: 'Currency', value: 'Japanese Yen (JPY)', icon: '💰' },
+      { label: 'Climate', value: 'Temperate (0–35°C)', icon: '🌸' },
+      { label: 'Cost of Living', value: 'USD 900–1,400/month', icon: '🏠' },
+      { label: 'Student Visa', value: 'Student Visa (留学)', icon: '📋' },
+      { label: 'Time Zone', value: 'UTC+9 (JST)', icon: '🕐' },
+      { label: 'Intake', value: 'April & October', icon: '📅' },
+    ],
+    visaInfo: 'International students need a Certificate of Eligibility (CoE) from your university before applying for a Japanese Student Visa at the Japanese Embassy. EduSpark coordinates the full application process.',
+    costOfLiving: 'USD 900–1,400/month in Tokyo; significantly less in cities like Kyoto, Osaka, or Sendai. University dormitories are available at much lower costs.',
+    attractions: [
+      { name: 'Mount Fuji', location: 'Shizuoka / Yamanashi', emoji: '🗻', type: 'Nature', description: 'Japan\'s highest peak at 3,776m and the country\'s most iconic symbol — a near-perfect volcanic cone that has inspired artists for centuries. The climbing season runs July–September, while the surrounding Fuji Five Lakes offer spectacular year-round views and hot spring retreats.' },
+      { name: 'Fushimi Inari Shrine', location: 'Kyoto', emoji: '⛩️', type: 'Culture', description: 'Japan\'s most photographed shrine — thousands of vermillion torii gates wind up a forested mountain behind the main shrine buildings. Dedicated to Inari, the Shinto god of rice and foxes, the full trail takes 2–3 hours and rewards hikers with views over Kyoto.' },
+      { name: 'Tokyo Shibuya Crossing', location: 'Tokyo', emoji: '🚶', type: 'City', description: 'The world\'s busiest pedestrian crossing — up to 3,000 people cross simultaneously from all directions when the lights turn green. Surrounded by towering neon screens and department stores, it encapsulates the energy of modern Tokyo. The scramble is best viewed from above at Starbucks Tsutaya.' },
+      { name: 'Arashiyama Bamboo Grove', location: 'Kyoto', emoji: '🎋', type: 'Nature', description: 'A magical path through soaring bamboo stalks that creak and sway in the wind, creating a sound unique to this place. Located in Kyoto\'s Arashiyama district alongside temples, a traditional riverboat experience on the Oi River, and the Tenryu-ji garden.' },
+      { name: 'Hiroshima Peace Memorial', location: 'Hiroshima', emoji: '🕊️', type: 'Heritage', description: 'The Genbaku Dome — the only structure left standing near the 1945 atomic bomb\'s hypocenter — is a haunting UNESCO World Heritage Site. The Peace Memorial Museum and Park nearby offer a deeply moving reflection on war, humanity, and the pursuit of a peaceful world.' },
+      { name: 'Nara Deer Park', location: 'Nara', emoji: '🦌', type: 'Nature', description: 'Over 1,200 freely roaming sacred deer wander among ancient temples and shrines in Japan\'s first capital. The deer bow to receive special crackers sold by vendors. Tōdai-ji Temple houses Japan\'s largest bronze Buddha statue — an unforgettable combination of nature and heritage.' },
+      { name: 'Okinawa Beaches', location: 'Okinawa', emoji: '🐠', type: 'Beach', description: 'Japan\'s tropical paradise — crystal-clear turquoise water, white sand beaches, and vibrant coral reefs in the East China Sea. Okinawa\'s unique Ryukyu culture, distinct cuisine, and relaxed pace of life create a world completely apart from mainland Japan.' },
+      { name: 'Hakone', location: 'Kanagawa', emoji: '♨️', type: 'Nature', description: 'A mountain resort town offering some of Japan\'s finest views of Mount Fuji across the crater lake. Famous for its outdoor hot spring (onsen) baths, the Hakone Open-Air Museum, traditional ryokan inns, and the historic Tokaido road. Perfect for a weekend escape from Tokyo.' },
+    ],
+  },
+
+  // ─── SINGAPORE ───────────────────────────────────────────────────────────
+  {
+    slug: 'singapore',
+    name: 'Singapore',
+    flag: '🇸🇬',
+    tagline: 'Gateway to Asia',
+    accentColor: '#e30000',
+    featured: false,
+    heroDesc: 'Singapore\'s NUS and NTU rank in the global top 15, making this tiny city-state one of the most powerful education hubs in the world.',
+    fullDesc: 'Singapore may be one of the world\'s smallest countries, but its universities punch well above their weight — NUS is consistently ranked in the global top 10. As Asia\'s financial capital and a gateway between East and West, Singapore offers international students world-class education, excellent English instruction, and extraordinary career opportunities in banking, tech, and trade. The city-state\'s cleanliness, safety, and efficiency are legendary. Students can experience a unique multicultural blend of Chinese, Malay, Indian, and Western influences in one of the world\'s most cosmopolitan cities.',
+    whyStudy: [
+      'NUS and NTU consistently in global top 15 universities',
+      'English is the primary language of instruction and business',
+      'Strategic location as Asia\'s financial and business capital',
+      'Safe, clean, and extremely well-organised city',
+      'Strong graduate employment and career opportunities',
+      'Multicultural society reflecting the diversity of Asia',
+      'World-class research facilities and industry partnerships',
+    ],
+    keyFacts: [
+      { label: 'Capital', value: 'Singapore City', icon: '🏙️' },
+      { label: 'Language', value: 'English (official)', icon: '🗣️' },
+      { label: 'Currency', value: 'Singapore Dollar (SGD)', icon: '💰' },
+      { label: 'Climate', value: 'Tropical (25–32°C)', icon: '☀️' },
+      { label: 'Cost of Living', value: 'USD 1,500–2,500/month', icon: '🏠' },
+      { label: 'Student Visa', value: 'Student Pass (ICA)', icon: '📋' },
+      { label: 'Time Zone', value: 'UTC+8 (SGT)', icon: '🕐' },
+      { label: 'Intake', value: 'August & January', icon: '📅' },
+    ],
+    visaInfo: 'Apply for a Singapore Student Pass through ICA\'s SOLAR system at least 2 months before your course starts. Your university will initiate the process. You\'ll need your acceptance letter, passport, and academic records.',
+    costOfLiving: 'USD 1,500–2,500/month. Singapore is the most expensive city in Southeast Asia but offers world-class public transport, hawker centre meals from SGD 3, and student hostel options.',
+    attractions: [
+      { name: 'Gardens by the Bay', location: 'Marina Bay', emoji: '🌿', type: 'Architecture', description: 'Singapore\'s crown jewel — a 101-hectare nature park featuring the iconic Supertrees, the Cloud Forest with the world\'s tallest indoor waterfall, and the Flower Dome housing Mediterranean plants. The nightly Supertree light-and-sound show is magical and free.' },
+      { name: 'Marina Bay Sands', location: 'Marina Bay', emoji: '🏨', type: 'Architecture', description: 'Singapore\'s most recognisable building — three 55-floor towers topped by a 340-metre sky park. The infinity pool, SkyPark observation deck, casino, and Louis Vuitton island boutique create Singapore\'s most theatrical address. The view from the top at dusk is extraordinary.' },
+      { name: 'Sentosa Island', location: 'Southern Singapore', emoji: '🎡', type: 'Adventure', description: 'Singapore\'s island resort playground — Universal Studios Singapore, SEA Aquarium, cable cars, beaches, and luxury hotels in one compact destination. Resorts World Sentosa is one of the world\'s largest resort complexes, making Sentosa a worthy destination for a full weekend.' },
+      { name: 'Merlion Park', location: 'Marina Bay', emoji: '🦁', type: 'Culture', description: 'Singapore\'s mythical lion-fish national symbol — a half-lion, half-fish statue spouting water into Marina Bay. With the glittering Marina Bay Sands as a backdrop, this is the definitive Singapore photo. The plaza at night, with its fountain lit up, is thoroughly photogenic.' },
+      { name: 'Chinatown', location: 'Outram Park', emoji: '🏮', type: 'Culture', description: 'Singapore\'s colourful historic Chinese quarter — shophouses painted in pastel shades, the Sri Mariamman Hindu Temple, the Buddha Tooth Relic Temple, and some of Singapore\'s best hawker food at the Smith Street food stalls. An authentic slice of Singapore\'s multicultural heritage.' },
+      { name: 'Singapore Zoo (Night Safari)', location: 'Mandai', emoji: '🦁', type: 'Nature', description: 'The world\'s first nocturnal zoo — 2,500 animals in naturalistic habitats explored on an open-air tram after dark. The adjacent Singapore Zoo, River Wonders, and the new Mandai Bird Paradise make this Singapore\'s premier wildlife destination.' },
+      { name: 'Little India', location: 'Rochor', emoji: '🪔', type: 'Culture', description: 'A sensory explosion — sari shops, garland sellers, Tamil music, the gold of Sri Veeramakaliamman Temple, and the aroma of fresh banana leaf curry. Little India during Deepavali festival is one of Singapore\'s most spectacular cultural experiences, with a spectacular light-up along Serangoon Road.' },
+      { name: 'MacRitchie Reservoir Park', location: 'Central Singapore', emoji: '🌳', type: 'Nature', description: 'Singapore\'s green lung — a 12km treetop walk above the forest canopy on a 250m suspension bridge between two hills. Macaque monkeys, monitor lizards, and over 200 bird species inhabit this ancient forest in the heart of the city. A perfect nature escape for students.' },
+    ],
+  },
+
+  // ─── SOUTH KOREA ─────────────────────────────────────────────────────────
+  {
+    slug: 'south-korea',
+    name: 'South Korea',
+    flag: '🇰🇷',
+    tagline: 'K-Culture & Innovation',
+    accentColor: '#003478',
+    featured: false,
+    heroDesc: 'South Korea blends top-tier universities, generous Government scholarships (GKS), a booming tech industry, and the global phenomenon of K-culture.',
+    fullDesc: 'South Korea has rapidly emerged as one of Asia\'s most attractive study destinations, powered by its world-class universities — Seoul National University, KAIST, and POSTECH — and generous government scholarship programmes. The Korean Government Scholarship (GKS) covers full tuition, stipend, and Korean language training. The country is a global leader in electronics, semiconductors, and K-pop culture, creating fascinating career opportunities for students. Korea\'s efficient transportation, affordable living costs compared to Japan or Singapore, and vibrant youth culture make it an increasingly popular destination.',
+    whyStudy: [
+      'Korean Government Scholarship (GKS) covering full tuition and living costs',
+      'World-leading universities in engineering, science, and technology',
+      'Booming tech industry — Samsung, LG, Hyundai, SK all headquartered here',
+      'Affordable cost of living compared to Japan and Singapore',
+      'Rich Korean culture — food, K-pop, K-drama, martial arts',
+      'Safe country with excellent public infrastructure',
+      'Post-study work opportunities in a growing economy',
+    ],
+    keyFacts: [
+      { label: 'Capital', value: 'Seoul', icon: '🏙️' },
+      { label: 'Language', value: 'Korean (English at top unis)', icon: '🗣️' },
+      { label: 'Currency', value: 'Korean Won (KRW)', icon: '💰' },
+      { label: 'Climate', value: '4 seasons: -10°C to 35°C', icon: '❄️' },
+      { label: 'Cost of Living', value: 'USD 800–1,400/month', icon: '🏠' },
+      { label: 'Student Visa', value: 'D-2 Student Visa', icon: '📋' },
+      { label: 'Time Zone', value: 'UTC+9 (KST)', icon: '🕐' },
+      { label: 'Intake', value: 'March & September', icon: '📅' },
+    ],
+    visaInfo: 'International students apply for a D-2 Student Visa after receiving their admission letter. You\'ll need the CoE, financial proof, and a health certificate. GKS scholarship holders receive additional visa support.',
+    costOfLiving: 'USD 800–1,400/month in Seoul. Smaller cities like Daejeon, Pohang, and Busan offer even lower costs. University dormitories are widely available and affordable.',
+    attractions: [
+      { name: 'Gyeongbokgung Palace', location: 'Seoul', emoji: '🏯', type: 'Heritage', description: 'The grandest of Seoul\'s five great Joseon Dynasty palaces — a majestic complex of throne halls, pavilions, and gardens that was the seat of power for 500 years. The changing of the Royal Guard ceremony in full historical costume is a daily spectacle not to be missed.' },
+      { name: 'Jeju Island', location: 'Jeju Province', emoji: '🌋', type: 'Nature', description: 'South Korea\'s "Island of the Gods" — a UNESCO triple crown destination with the volcanic Hallasan mountain, Manjanggul lava tube cave, and Seongsan Ilchulbong sunrise peak. Jeju\'s haenyeo (female divers), tangerine farms, and black lava coastline offer a completely unique Korean experience.' },
+      { name: 'Bukchon Hanok Village', location: 'Seoul', emoji: '🏠', type: 'Heritage', description: 'A living museum of traditional Korean hanok architecture nestled between Gyeongbokgung and Changdeokgung palaces. The narrow alleys of 900-year-old tile-roofed houses, tea houses, and craft studios offer a charming glimpse of aristocratic Joseon life in the heart of modern Seoul.' },
+      { name: 'Seoraksan National Park', location: 'Gangwon Province', emoji: '🏔️', type: 'Nature', description: 'Korea\'s most dramatic mountain landscape — jagged granite peaks, ancient Buddhist temples, and forested valleys turning crimson and gold each autumn. Ulsanbawi Rock requires a challenging but rewarding 6km hike. One of Korea\'s most celebrated natural wonders in every season.' },
+      { name: 'Myeongdong', location: 'Seoul', emoji: '🛍️', type: 'City', description: 'Seoul\'s most iconic shopping and street food district — K-beauty skincare shops, international fashion brands, Korean fried chicken, tteokbokki rice cakes, and freshly made hotteok pancakes on every corner. Myeongdong at night is a dazzling blur of neon signs and street food vendors.' },
+      { name: 'Gamcheon Culture Village', location: 'Busan', emoji: '🎨', type: 'Culture', description: 'The "Machu Picchu of Korea" — a hillside neighbourhood of brightly painted houses, quirky murals, staircases, and public art installations in Busan. Once a wartime settlement for refugees, it has been transformed into one of Korea\'s most photogenic artistic communities.' },
+      { name: 'DMZ (Demilitarized Zone)', location: 'Near Seoul', emoji: '🪖', type: 'Heritage', description: 'One of the world\'s most tense borders — the 4km wide, 248km long buffer zone dividing North and South Korea. The Joint Security Area at Panmunjom, the Third Infiltration Tunnel, and the Dora Observatory offer a fascinating, sobering, and unique look at Cold War history.' },
+      { name: 'Boseong Green Tea Fields', location: 'South Jeolla Province', emoji: '🍵', type: 'Nature', description: 'Row upon row of vivid green tea bushes cascading down hillsides in South Korea\'s tea capital. The Daehan Dawon tea plantation is particularly photogenic at sunrise with morning mist. Visitors can participate in tea-picking experiences and sample fresh Korean green tea.' },
+    ],
+  },
+
+  // ─── CHINA ───────────────────────────────────────────────────────────────
+  {
+    slug: 'china',
+    name: 'China',
+    flag: '🇨🇳',
+    tagline: 'The Scholarship Giant',
+    accentColor: '#de2910',
+    featured: false,
+    heroDesc: 'China\'s CSC Government Scholarship is one of the world\'s most generous — covering full tuition, accommodation, and a monthly stipend at world-class universities.',
+    fullDesc: 'China has invested heavily in transforming its universities into world-class institutions, with Tsinghua and Peking universities now firmly established in the global top 50. The Chinese Government Scholarship (CSC), administered by the China Scholarship Council, offers comprehensive funding covering tuition, accommodation, and living expenses for thousands of international students annually. China\'s rapidly expanding economy, its technological ambitions, and the growing global importance of Mandarin make studying in China a uniquely valuable investment. Shanghai, Beijing, and Hangzhou offer vibrant, modern metropolises with thousands of years of history.',
+    whyStudy: [
+      'CSC Government Scholarship covering full tuition, housing, and stipend',
+      'Tsinghua and Peking University in global top 50',
+      'Learning Mandarin — the language of the world\'s second-largest economy',
+      'Affordable cost of living and tuition for self-funded students',
+      'Access to the world\'s fastest-growing economy and tech industry',
+      'Provincial and university-level scholarships available',
+      'Rich 5,000-year civilisation — unmatched cultural experience',
+    ],
+    keyFacts: [
+      { label: 'Capital', value: 'Beijing', icon: '🏙️' },
+      { label: 'Language', value: 'Mandarin Chinese', icon: '🗣️' },
+      { label: 'Currency', value: 'Chinese Yuan (CNY)', icon: '💰' },
+      { label: 'Climate', value: 'Varies greatly by region', icon: '🌤️' },
+      { label: 'Cost of Living', value: 'USD 500–1,000/month', icon: '🏠' },
+      { label: 'Student Visa', value: 'X1/X2 Student Visa', icon: '📋' },
+      { label: 'Time Zone', value: 'UTC+8 (CST)', icon: '🕐' },
+      { label: 'Intake', value: 'September & March', icon: '📅' },
+    ],
+    visaInfo: 'Apply for an X1 visa (study over 6 months) or X2 visa (under 6 months) at the Chinese Embassy. You\'ll need your JW201/JW202 admission notice, health certificate, and no-criminal-record certificate.',
+    costOfLiving: 'USD 500–1,000/month, making China one of the most affordable destinations for international students. Tier-1 cities like Beijing and Shanghai cost more; Xi\'an, Chengdu, and Harbin are significantly cheaper.',
+    attractions: [
+      { name: 'Great Wall of China', location: 'Beijing & Northern China', emoji: '🏯', type: 'Heritage', description: 'One of the greatest architectural achievements in human history — stretching over 21,000km across northern China\'s mountains and deserts. The Mutianyu and Badaling sections near Beijing are the most accessible. Walking along the battlements with mountains stretching to the horizon is an unforgettable experience.' },
+      { name: 'Forbidden City', location: 'Beijing', emoji: '🏛️', type: 'Heritage', description: 'The world\'s largest palace complex and a UNESCO World Heritage Site — 980 buildings across 72 hectares that served as the Chinese imperial palace for 24 emperors across 500 years. The Hall of Supreme Harmony, imperial gardens, and treasures of the Palace Museum tell the story of China\'s dynastic history.' },
+      { name: 'Zhangjiajie National Park', location: 'Hunan Province', emoji: '🏔️', type: 'Nature', description: 'The real-world inspiration for the floating Hallelujah Mountains in Avatar — thousands of pillar-like sandstone peaks draped in mist and vegetation. The Bailong Elevator (world\'s tallest outdoor lift), glass-bottomed bridge, and cable cars make this one of China\'s most dramatic and unique landscapes.' },
+      { name: 'Li River Cruise, Guilin', location: 'Guangxi', emoji: '🛶', type: 'Nature', description: 'A cruise between Guilin and Yangshuo along the Li River is one of the world\'s great natural journeys — karst limestone peaks rising dramatically from the water, water buffalo wading in shallows, and ancient fishing villages unchanged for centuries. This landscape appears on the Chinese 20 yuan note.' },
+      { name: 'Terracotta Army', location: "Xi'an, Shaanxi", emoji: '⚔️', type: 'Heritage', description: 'One of the greatest archaeological discoveries of the 20th century — 8,000 life-size terracotta soldiers, horses, and chariots buried with Emperor Qin Shi Huang in 210 BC. Each warrior has unique facial features. Three excavation pits are open to visitors, with more discoveries being made every year.' },
+      { name: 'West Lake, Hangzhou', location: 'Hangzhou, Zhejiang', emoji: '🌸', type: 'Nature', description: 'A UNESCO World Heritage landscape of pagodas, ancient causeways, and willow-lined shores that has inspired Chinese poets and painters for a thousand years. The Su Causeway in spring when peach blossoms are in full bloom is among China\'s most celebrated natural spectacles.' },
+      { name: 'The Bund, Shanghai', location: 'Shanghai', emoji: '🌃', type: 'City', description: 'Shanghai\'s iconic waterfront promenade — a 1.5km stretch of colonial-era European architecture facing the futuristic Pudong skyline across the Huangpu River. At night, the neon-lit skyline with the Oriental Pearl Tower and Shanghai Tower creates one of Asia\'s most spectacular urban panoramas.' },
+      { name: 'Jiuzhaigou Valley', location: 'Sichuan Province', emoji: '💧', type: 'Nature', description: 'A UNESCO World Heritage natural wonder of surreal multi-coloured lakes in shades of turquoise, emerald, and sapphire, fed by snow-capped peaks and ancient forests. The calcified lake floors and seasonal waterfalls create a landscape that seems too beautiful and too vivid to be real.' },
+    ],
+  },
+
+  // ─── NETHERLANDS ─────────────────────────────────────────────────────────
+  {
+    slug: 'netherlands',
+    name: 'Netherlands',
+    flag: '🇳🇱',
+    tagline: 'Innovative & English-Friendly',
+    accentColor: '#ae1c28',
+    featured: false,
+    heroDesc: 'The Netherlands offers over 2,100 English-taught programmes, the Holland Scholarship, and access to the EU job market in one of the world\'s happiest countries.',
+    fullDesc: 'The Netherlands may be small in size, but it is enormous in academic ambition. Dutch universities are among Europe\'s best, with TU Delft, Leiden, and Amsterdam consistently ranking in the global top 200. What makes the Netherlands stand out is its commitment to English-medium education — over 2,100 programmes taught entirely in English. Dutch universities are known for their innovative problem-based learning approach, excellent student-to-faculty ratios, and strong industry connections. The country\'s central location in Europe, vibrant cycling culture, and world-famous museums make it one of Europe\'s most welcoming destinations.',
+    whyStudy: [
+      'Over 2,100 English-taught programmes — no Dutch language required',
+      'Holland Scholarship (€5,000) and Orange Tulip Scholarship available',
+      'Innovative problem-based and project-based learning methods',
+      'Central location — Paris, London, and Berlin within 2 hours',
+      'EU job market access after graduation',
+      'Safe, tolerant, and internationally minded society',
+      'Excellent quality of life and cycling-friendly cities',
+    ],
+    keyFacts: [
+      { label: 'Capital', value: 'Amsterdam', icon: '🏙️' },
+      { label: 'Language', value: 'Dutch (English widely spoken)', icon: '🗣️' },
+      { label: 'Currency', value: 'Euro (EUR)', icon: '💰' },
+      { label: 'Climate', value: 'Oceanic (3–22°C)', icon: '🌦️' },
+      { label: 'Cost of Living', value: 'USD 900–1,400/month', icon: '🏠' },
+      { label: 'Student Visa', value: 'MVV / Residence Permit', icon: '📋' },
+      { label: 'Time Zone', value: 'UTC+1 / UTC+2 (CEST)', icon: '🕐' },
+      { label: 'Intake', value: 'September (mainly)', icon: '📅' },
+    ],
+    visaInfo: 'Non-EU students need an MVV entry visa followed by a residence permit arranged by your university (IND). Your university acts as a recognised sponsor. Most deadlines are April 1st for September intake.',
+    costOfLiving: 'USD 900–1,400/month. Amsterdam is the most expensive; Eindhoven, Leiden, Maastricht, and Utrecht offer great quality at lower costs. Cycling saves significantly on transportation.',
+    attractions: [
+      { name: 'Amsterdam Canal Ring', location: 'Amsterdam', emoji: '🚲', type: 'Heritage', description: 'A UNESCO World Heritage landscape of 17th-century canals, gabled merchant houses, and humpback bridges — one of the world\'s great urban environments. A canal boat tour at golden hour reveals 165 canals, 1,281 bridges, and 17th-century heritage that shaped world trade history.' },
+      { name: 'Rijksmuseum', location: 'Amsterdam', emoji: '🎨', type: 'Museum', description: 'The Netherlands\' greatest museum — Rembrandt\'s Night Watch, Vermeer\'s Milkmaid, and Delft blue porcelain among 8,000 artworks spanning 800 years of Dutch history. The magnificent building itself is a work of art. The I Amsterdam sign outside is an iconic photo opportunity.' },
+      { name: 'Keukenhof Gardens', location: 'Lisse, South Holland', emoji: '🌷', type: 'Nature', description: 'The world\'s largest flower garden — 32 hectares of seven million tulips, daffodils, and hyacinths blooming each spring in a kaleidoscope of colour. Only open March–May, Keukenhof is the greatest floral show on Earth and a quintessentially Dutch experience.' },
+      { name: 'Kinderdijk Windmills', location: 'South Holland', emoji: '⚙️', type: 'Heritage', description: 'A UNESCO World Heritage Site — 19 historic windmills built in the 1740s to manage flood water in the Dutch delta. These iconic structures symbolise the Dutch mastery of water engineering that turned a waterlogged delta into one of Europe\'s most prosperous nations.' },
+      { name: 'Anne Frank House', location: 'Amsterdam', emoji: '🕯️', type: 'Heritage', description: 'The hidden annex where Anne Frank and her family hid from Nazi persecution for two years — now a profound and moving museum. The original diary, the bookcase concealing the entrance, and the personal belongings make this one of the most important sites in Europe\'s 20th-century history.' },
+      { name: 'Delft Old Town', location: 'Delft, South Holland', emoji: '🏺', type: 'Heritage', description: 'A perfectly preserved 17th-century Dutch city of canals, Gothic churches, and the home of the world-famous blue-and-white Delft pottery. Johannes Vermeer was born here. The Prinsenhof museum and New Church tower offer the quintessential Dutch small-city experience.' },
+      { name: 'Hoge Veluwe National Park', location: 'Gelderland', emoji: '🦌', type: 'Nature', description: 'The Netherlands\' largest national park — 5,400 hectares of forests, heathlands, and sand dunes home to wild boar, red deer, and mouflon. The Kröller-Müller Museum inside the park houses the world\'s second-largest Van Gogh collection in a stunning woodland setting.' },
+      { name: 'Maastricht Old City', location: 'Maastricht, Limburg', emoji: '🏛️', type: 'Heritage', description: 'The Netherlands\' most European city — a medieval gem on the Maas River near the Belgian and German borders. The Vrijthof square, the ancient Basilica of Saint Servatius, and the MECC convention centre make Maastricht uniquely cosmopolitan. The birthplace of the Maastricht Treaty on European Union.' },
+    ],
+  },
+
+  // ─── NEW ZEALAND ─────────────────────────────────────────────────────────
+  {
+    slug: 'new-zealand',
+    name: 'New Zealand',
+    flag: '🇳🇿',
+    tagline: 'Safe & Scenic',
+    accentColor: '#00247d',
+    featured: false,
+    heroDesc: 'New Zealand offers high-quality English education, post-study work rights, and the most spectacular natural landscapes anywhere in the world.',
+    fullDesc: 'New Zealand is consistently ranked among the world\'s safest and most peaceful countries, making it an ideal destination for international students. All eight New Zealand universities rank in the global top 500, with the University of Auckland in the top 100. The country\'s post-study work visa allows graduates to stay and work for 1–3 years, and the relatively straightforward immigration system is student-friendly. Beyond academics, New Zealand\'s extraordinary landscapes — from fjords and glaciers to volcanic plateaus and golden beaches — offer student adventurers an unmatched natural playground.',
+    whyStudy: [
+      'All 8 universities rank in QS World Top 500',
+      'Post-study work visa for 1–3 years after graduation',
+      'Safe, peaceful, and welcoming to international students',
+      'English-medium instruction across all institutions',
+      'High quality of life in a pristine natural environment',
+      'New Zealand Government Excellence Awards for scholarships',
+      'Clear pathway to permanent residency for skilled graduates',
+    ],
+    keyFacts: [
+      { label: 'Capital', value: 'Wellington', icon: '🏙️' },
+      { label: 'Language', value: 'English & Māori', icon: '🗣️' },
+      { label: 'Currency', value: 'NZ Dollar (NZD)', icon: '💰' },
+      { label: 'Climate', value: 'Temperate (10–25°C)', icon: '🌤️' },
+      { label: 'Cost of Living', value: 'USD 1,000–1,600/month', icon: '🏠' },
+      { label: 'Student Visa', value: 'Student Visa (INZ)', icon: '📋' },
+      { label: 'Time Zone', value: 'UTC+12 / UTC+13 (NZST)', icon: '🕐' },
+      { label: 'Intake', value: 'February & July', icon: '📅' },
+    ],
+    visaInfo: 'Apply for a New Zealand Student Visa through the Immigration New Zealand online portal. You\'ll need your offer of place, IELTS 6.0+, proof of funds (NZD 15,000/year), and full-cost disclosure from your institution.',
+    costOfLiving: 'USD 1,000–1,600/month. Auckland is the most expensive; Wellington, Christchurch, Dunedin, and Palmerston North offer lower costs with strong university communities.',
+    attractions: [
+      { name: 'Milford Sound', location: 'Fiordland, South Island', emoji: '⛰️', type: 'Nature', description: 'Rudyard Kipling called it the eighth wonder of the world — a fiord of sheer cliffs rising 1,200m from mirror-still waters, with waterfalls cascading from ancient rainforest. Milford Sound is at its most dramatic in rain, when hundreds of temporary waterfalls appear on every cliff face.' },
+      { name: 'Hobbiton Movie Set', location: 'Matamata, Waikato', emoji: '🧙', type: 'Culture', description: 'The real Shire from The Lord of the Rings and The Hobbit — 44 hobbit holes set in rolling green hills of the Alexander sheep farm. The Green Dragon Inn, the Party Tree, and Bag End are all here in the lush Waikato countryside. A pilgrimage for every Tolkien fan.' },
+      { name: 'Rotorua Geothermal', location: 'Bay of Plenty', emoji: '♨️', type: 'Nature', description: 'A city built on a volcanic hotspot — geysers erupting on schedule, bubbling mud pools, and the sulphur-scented Wai-O-Tapu thermal wonderland with its champagne pools and Artist\'s Palette coloured terraces. Rotorua is also the heartland of Māori culture with traditional hangi feasts and cultural performances.' },
+      { name: 'Queenstown', location: 'Otago, South Island', emoji: '🏂', type: 'Adventure', description: 'The adventure capital of the world — bungee jumping, skydiving, jet boating, white-water rafting, and the world\'s most scenic ski fields, all set against the backdrop of the Remarkables mountain range reflected in Lake Wakatipu. In every season, Queenstown delivers extraordinary experiences.' },
+      { name: 'Bay of Islands', location: 'Northland, North Island', emoji: '🐬', type: 'Beach', description: 'A subtropical paradise of 144 islands, pristine beaches, and turquoise waters where dolphins swim alongside boats. Sailing, kayaking, and swimming with dolphins make this New Zealand\'s most popular summer destination. The Waitangi Treaty Grounds nearby are New Zealand\'s most important historical site.' },
+      { name: 'Franz Josef Glacier', location: 'West Coast, South Island', emoji: '🧊', type: 'Nature', description: 'One of the world\'s few glaciers descending into a temperate rainforest — a 12km river of ancient ice moving at up to 70cm per day. Helicopter tours land on the glacier for ice cave exploration. Fox Glacier nearby offers equally dramatic ice and mountain scenery.' },
+      { name: 'Tongariro Alpine Crossing', location: 'Tongariro, North Island', emoji: '🌋', type: 'Adventure', description: 'New Zealand\'s most popular day hike — a 19.4km traverse across active volcanic terrain with emerald crater lakes, steaming vents, and views across the North Island. Mount Ngauruhoe (Mordor\'s Mount Doom in LOTR) and Mount Ruapehu frame a truly otherworldly volcanic landscape.' },
+      { name: 'Abel Tasman National Park', location: 'Nelson, South Island', emoji: '🏖️', type: 'Beach', description: 'New Zealand\'s smallest and sunniest national park — a golden-sand coastal walk of 60km connecting secluded beaches, clear-water lagoons, and native bush. Sea kayaking, water taxis between beaches, and spotting NZ fur seals make Abel Tasman a pure paradise.' },
+    ],
+  },
+];
+
+export const getCountryBySlug = (slug: string): Country | undefined =>
+  countries.find(c => c.slug === slug);
+
+export const featuredCountry = countries.find(c => c.featured);
+export const otherCountries  = countries.filter(c => !c.featured);
