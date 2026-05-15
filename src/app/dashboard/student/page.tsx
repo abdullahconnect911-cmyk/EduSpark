@@ -1,5 +1,6 @@
 import { auth } from '@/auth';
 import Link from 'next/link';
+import './student-overview.css';
 
 const mockApplications = [
   { id: '1', university: "Taylor's University", course: 'BSc Computer Science', country: 'Malaysia', status: 'reviewing', intake: 'Jul 2026', updatedAt: '2 days ago' },
@@ -136,14 +137,7 @@ export default async function StudentOverviewPage() {
             { href: '/contact', icon: '💬', label: 'Message Counselor' },
             { href: '/universities', icon: '🏛️', label: 'Browse Universities' },
           ].map((a, i) => (
-            <Link key={i} href={a.href} style={{
-              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px',
-              padding: '20px 12px', background: 'var(--off)', border: '1.5px solid var(--border)',
-              borderRadius: '12px', textDecoration: 'none', transition: '0.25s', textAlign: 'center',
-            }}
-              onMouseOver={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--blue)'; (e.currentTarget as HTMLAnchorElement).style.background = 'var(--blue-light)'; }}
-              onMouseOut={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--border)'; (e.currentTarget as HTMLAnchorElement).style.background = 'var(--off)'; }}
-            >
+            <Link key={i} href={a.href} className="quick-action-link">
               <span style={{ fontSize: '1.8rem' }}>{a.icon}</span>
               <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text)' }}>{a.label}</span>
             </Link>
